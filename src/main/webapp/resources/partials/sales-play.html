@@ -1,0 +1,64 @@
+
+<div class="secContent"> 
+<div data-ng-repeat="error in errors">
+    <div><span class="icon_sprite icon_error error"></span>{{error}}</div>
+</div>
+           
+<div data-ng-form="salesPlayFormTab1" >
+
+    <div data-ng-show="salesPlayFormTab1.$dirty" class="dirtynag">* Warning: You have unsaved changes</div>
+    <div class="fieldGroup">
+    <h5 class="clientLayout">Customer Information <span class="control-label-required">Indicates required field</span></h5>
+    <ul class="clientLayout">
+            <li>
+            <span> 
+              <label class="control-label" for="salesPlayName" >Sales Play Name :</label> 
+                <input type="text" name="salesPlayName" data-ng-model="customerInfo.salesPlayName"  />
+            </span>
+         </li> 
+         <li>
+            <span> 
+                <label class="control-label" for="clientName" required>Client Name :</label>
+                      <input type="text" name="clientName" data-ng-model="customerInfo.clientName" />
+                     
+                  </span>                              
+                </li>                               
+	        <li>
+	           <span> 
+	                <label class="control-label" for="customerClientContact" >Client Contact :</label>
+	                <input type="text" name="customerClientContact" data-ng-model="customerInfo.customerClientContact" />
+	            </span>
+	         </li>
+	        <li>
+	           <span> 
+	                <label class="control-label" for="customerClientEmail" >Client Email :</label>
+	             <input type="text" name="customerClientEmail" data-ng-model="customerInfo.customerClientEmail" />    
+	            </span>
+	         </li>
+ 	        <li>
+ 	          <form id="fileupload" method="POST" enctype="multipart/form-data" >
+	           <span> 
+	                <label class="control-label" for="clientLogo" >Client Logo :</label>
+	              <input type="file" data-file-model="clientLogo" >
+	                 
+	            <div>
+  <label for="files" class="boxBtn">Select Image</label>
+  <input id="files" style="visibility:hidden;" type="file">
+</div>
+	            </span>
+	            </form>
+	         </li>
+                    
+    </ul>
+ 
+         <button type="button" class="boxBtn"  data-ng-click="addSalesPlay(customerInfo)">
+            <span class="btnIcon icon_sprite icon_save2" ></span>
+            <span class="btnText">Next</span>
+         </button>       
+                
+       </div>
+
+</div>
+
+
+ </div><div class="clear"></div>

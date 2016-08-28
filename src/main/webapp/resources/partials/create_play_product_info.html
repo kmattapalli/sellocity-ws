@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <!--ionicons-->
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+    <!--JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="resources/css/styles.css" />
+    
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row margin-top ">
+            <div class="col m7">
+                <ul class="nav nav-tabs nav-justified">
+                    <li role="presentation" class=""><a href="create_play_1.html">1</a></li>
+                    <li role="presentation" class=""><a href="create_play_2.html">2</a></li>
+                    <li role="presentation" class="active"><a href="#">3</a></li>
+                    <li role="presentation" class="disabled"><a href="#">4</a></li>
+                    <li role="presentation" class="disabled"><a href="#">5</a></li>
+                </ul>
+            </div>
+
+            <div class="col m3">
+                <div class="row left-border">
+                    <div class="col m12 center">
+                        <h6><a href="">Kevin</a></h6>
+                        <!--                    <div class="dropdown">
+                                                 <button class="dropbtn">Kevin</button>
+                                                 <div class="dropdown-content">
+                                                     <a href="#">Link 1</a>
+                                                     <a href="#">Link 2</a>
+                                                     <a href="#">Link 3</a>
+                                                 </div>
+                                             </div>-->
+                    </div>
+                    <div class="col m12 center top-border"><h6>Pixar performance play</h6></div>
+                </div>
+            </div>
+        </div>
+        <div id="tab3-wrapper" class="row top-border bottom-border">
+            <div class="col m12 center">
+                <h6>VALUE PROPOSITION OF YOUR PRODUCTS</h6>
+            </div>
+        </div>
+
+        <div class="row margin-top" data-ng-repeat="mappingObj in salesPlay.salesPlayMapping">
+            <div class="col m12">
+            <div class="panel-group" id="accordian">
+
+                <div class="panel panel-default">
+                    <div class="center-align panel-heading">
+                        <h6 class="panel-title">
+                            <a class="center-align" data-toggle="collapse" data-parent="#accordian" href="#collapse1">Product {{$index}}</a>
+                        </h6>
+                    </div>
+
+                    <div id="collapse1" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col m4">
+                                    <h5>Identify 4 key values that Vaio-Z brings to the table</h5>
+                                    <br /><br />
+                                    <div class="center-align"><img src="resources/images/cust.jpg" /></div>
+                                </div>
+                                <form class="col m8">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input placeholder="Hardware Agnostic Code" id="play-name" type="text" class="" data-ng-model="product.productValues1">
+                                            <label for="play-name"></label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input placeholder="Global Memory Coalscing" id="client-name" type="text" class="" data-ng-model="product.productValues2">
+                                            <label for="client-name"></label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input placeholder="Lowest Wattage per Dollar" id="receiver-name" type="text" class="" data-ng-model="product.productValues3">
+                                            <label for="receiver-name"></label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input placeholder="Highest frames per second" id="receiver-email" type="text" class="" data-ng-model="product.productValues4">
+                                            <label for="receiver-email"></label>
+                                        </div>
+                                    </div>
+ 
+                                </form>
+                                
+                            </div>
+                        
+                        <div class="row well center-align margin-bottom">
+                            <div class="col m3 center-align">
+                                <div id="pain-point-icon" class="file-field input-field btn">
+                                    <span class=""><i class="size-30 icon ion-android-upload"></i></span>
+                                    <input type="file" data-file-model="product.productAwards">
+                                </div>
+                                <br /><label for="pain-point-icon">Product Awards</label>
+                            </div>
+
+                            <div class="col m3 center-align left-border">
+                                <div id="product-image" class="file-field input-field btn">
+                                    <span class=""><i class="size-30 icon ion-android-upload"></i></span>
+                                    <input type="file" data-file-model="product.productClaims">
+                                </div>
+                                <br /><label for="product-image">Product Claims</label>
+                            </div>
+
+                            <div class="col m3 center-align left-border">
+                                <div id="product-spec" class="file-field input-field btn">
+                                    <span class=""><i class="size-30 icon ion-android-upload"></i></span>
+                                    <input type="file" data-file-model="product.productWhitePapers">
+                                </div>
+                                <br /><label for="product-spec">Product Whitepapers</label>
+                            </div>
+
+                            <div class="col m3 center-align left-border">
+                                <div id="product-manual" class="file-field input-field btn">
+                                    <span class=""><i class="size-30 icon ion-android-upload"></i></span>
+                                    <input type="file" data-file-model="product.productTestimonials">
+                                </div>
+                                <br /><label for="product-manual">Testimonials</label>
+                            </div>
+                            
+                        </div>
+                    <button type="button" class="boxBtn"  data-ng-click="createProductValues(product,mappingObj.salesPlayKey)">
+          			<span class="btnIcon icon_sprite icon_save2" ></span>
+					<span class="btnText">Save</span>
+				 </button>   
+                    </div>
+                    </div>
+                </div>
+ 			</div>
+
+ 		</div>
+
+ </div>
+
+        <div class="row margin-bottom">
+            <div class="input-field col s12 center-align">
+                <a class="waves-effect waves-light btn btn-flat" href="create_play_2.html"><i class="size-18 icon ion-android-arrow-back"></i>&nbsp; Back </a>
+                <a class="waves-effect waves-light btn" href="create_play_4.html">Next &nbsp;<i class="icon ion-android-arrow-forward"></i></a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

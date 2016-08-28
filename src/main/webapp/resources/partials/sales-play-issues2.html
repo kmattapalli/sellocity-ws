@@ -1,0 +1,82 @@
+<div class="secContent"> 
+<div data-ng-repeat="error in errors">
+    <div><span class="icon_sprite icon_error error"></span>{{error}}</div>
+</div>
+           
+<div data-ng-form="salesPlayFormTab1" >
+
+    <div data-ng-show="salesPlayFormTab1.$dirty" class="dirtynag">* Warning: You have unsaved changes</div>
+    <div class="fieldGroup">
+    <h5 class="clientLayout">Customer Information <span class="control-label-required">Indicates required field</span></h5>
+    <ul class="clientLayout">
+            <li>
+            <span> 
+              <label class="control-label" for="salesPlayName" >Sales Play Name :</label> 
+                <input type="text" name="painPoint1" data-ng-model="salesPlayName"  />
+            </span>
+         </li> 
+         <li>
+            <span> 
+                <label class="control-label" for="clientName" required>Client Name :</label>
+                      <input type="text" name="clientName" data-ng-model="clientName" />
+                     
+                  </span>                              
+                </li>                               
+	        <li>
+	           <span> 
+	                <label class="control-label" for="customerClientContact" >Client Contact :</label>
+	                <input type="text" name="customerClientContact" data-ng-model="customerClientContact" />
+	            </span>
+	         </li>
+	        <li>
+	           <span> 
+	                <label class="control-label" for="customerClientEmail" >Client Email :</label>
+	             <input type="text" name="customerClientEmail" data-ng-model="customerClientEmail" />    
+	            </span>
+	         </li>
+ 	        <li>
+ 	          <form id="fileupload" method="POST" enctype="multipart/form-data" >
+	           <span> 
+	                <label class="control-label" for="clientLogo" >Client Logo :</label>
+	                  <input type="file" data-file-model="clientLogo" >
+	             
+	            </span>
+	            </form>
+	         </li>
+      <li>       
+            <span> 
+              <label class="control-label" for="painPoint1" >Pain points1 :</label> 
+                <input type="text" name="painPoint1" data-ng-model="painPoint1"  />
+            </span>
+         </li>         
+        <li>
+            <span> 
+              <label class="control-label" for="painPoint2" >Pain points2 :</label> 
+                <input type="text" name="painPoint2" data-ng-model="painPoint2"  />
+            </span>
+         </li>        
+            <li>
+            <span> 
+              <label class="control-label" for="painPoint3" >Pain points3 :</label> 
+                <input type="text" name="painPoint3" data-ng-model="painPoint3"  />
+            </span>
+         </li>    
+        <li>
+            <span> 
+              <label class="control-label" for="painPoints4" >Pain points4 :</label> 
+                <input type="text" name="painPoint4" data-ng-model="painPoint4"  />
+            </span>
+         </li>                   
+    </ul>
+ 
+         <button type="button" class="boxBtn"  data-ng-click="addSalesPlay(customerInfo)">
+            <span class="btnIcon icon_sprite icon_save2" ></span>
+            <span class="btnText">Next</span>
+         </button>       
+                
+       </div>
+
+</div>
+
+
+ </div><div class="clear"></div>
