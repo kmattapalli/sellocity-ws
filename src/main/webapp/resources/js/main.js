@@ -48,7 +48,7 @@ $stateProvider
         url: "",
         views: {
             "uiview": {
-                templateUrl: 'resources/partials/sales-play.html',
+                templateUrl: 'resources/partials/create_play.html',
                 controller: 'SalesPlayController'
             }
         }
@@ -58,7 +58,7 @@ $stateProvider
         url: "/customer/salesplay/{playId}", 
         views: {
             "uiview": {
-                templateUrl: 'resources/partials/sales-play-issues.html',
+                templateUrl: 'resources/partials/create_play_1.html',
                 controller: 'PaintPointsController'
             }
         }
@@ -68,7 +68,7 @@ $stateProvider
     
     views: {
         "uiview": {
-            templateUrl: 'resources/partials/sales-play-product.html',
+            templateUrl: 'resources/partials/create_play_2.html',
             controller: 'ProductInfoController'
         }
     }

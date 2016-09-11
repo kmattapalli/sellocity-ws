@@ -2,9 +2,9 @@ package com.sales.module.dao;
 
 import java.util.List;
 
-public interface CustomerDAO<Customer>  extends SelloCityDao<Customer> {
+public interface CustomerDAO<ScCustomer>  extends SelloCityDao<ScCustomer> {
 	
-	public List<Customer> findByName(String name);
+	public List<ScCustomer> findByName(String name);
 
 
   

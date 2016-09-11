@@ -1,8 +1,8 @@
 package com.sales.module.dao;
 
-public interface SalesPlaySpecsDAO<SalesPlaySpecs> extends SelloCityDao<SalesPlaySpecs>{
+public interface SalesPlaySpecsDAO<ScSalesplaySpecs> extends SelloCityDao<ScSalesplaySpecs>{
 	
-	public SalesPlaySpecs findBySalesPlaySpecId(Long specId);
+	public ScSalesplaySpecs findByScSalesplaySpecId(Long specId);
 
 
   

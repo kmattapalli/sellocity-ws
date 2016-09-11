@@ -1,8 +1,8 @@
 package com.sales.module.dao;
 
-public interface SalesPlayTestimonialsDAO<SalesPlayTestimonials> extends SelloCityDao<SalesPlayTestimonials>{
+public interface SalesPlayTestimonialsDAO<ScSalesplayTestimonials> extends SelloCityDao<ScSalesplayTestimonials>{
 	
-	public SalesPlayTestimonials findByTestimonialId(Integer testimonialId);
+	public ScSalesplayTestimonials findByTestimonialId(Integer testimonialId);
 
 
   

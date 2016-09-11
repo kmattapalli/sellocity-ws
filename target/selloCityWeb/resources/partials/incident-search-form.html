@@ -1,0 +1,108 @@
+<div class="secContent"> 
+<div data-ng-repeat="error in errors">
+    <div><span class="icon_sprite icon_error error"></span>{{error}}</div>
+</div>
+           
+
+
+<div>
+    <div data-searchable data-search-url="'incidentsearch'" data-search-params="searchParams"  data-search-response="searchResponse" size="50" >
+        <div class="fieldGroup">
+            <h5>Search Filters</h5>
+          <ul>
+           <li>
+            <span> 
+                <label class="control-label-required" for="searchParams.incidentNo" >Incident No:</label>
+                     <input incident-search-auto-complete type="text" 
+                     placeholder="Search..." 
+                     data-ng-model="incidentNo"
+                     data-typeahead="entity as entity.incidentNo for entity in filterIncidents($viewValue)" 
+                     data-typeahead-wait-ms="200" 
+                     data-typeahead-editable="true" 
+                     data-typeahead-input-formatter="formatIncidentNo($model)"
+                     data-typeahead-on-select="changeIncidentNo($item)" />  
+                  </span>                              
+                </li>                               
+
+
+	     	<li>
+	            <span> 
+	                <label  for="searchParams.toolStatus">Tool Status :</label>
+	             	  <select  data-ng-model="searchParams.toolStatus" data-ng-options="name for name in statusTypes" required>
+							        <option value="">Select...</option>
+						</select>           
+	            </span>
+	         </li>  
+	     	<li>
+	            <span> 
+	                <label  for="searchParams.director">Director :</label>
+	             	  <select  data-ng-model="searchParams.director" data-ng-options="name for name in directors" required>
+							        <option value="">Select...</option>
+						</select>           
+	            </span>
+	         </li>  
+	         <li></li>
+
+            </ul>
+            <button type="button" type="button" class="mediumWidthBtn" data-search-on-click  data-active-indicator="searchResponse.searching">
+                <span class="btnIcon icon_sprite icon_reTry2 ng-class:{ajax_indicator:activeIndicator}"></span>
+                <span class="btnText">Search</span>
+            </button>
+    		<button type="button" class="mediumWidthBtn"  data-ng-click="cancel()">
+            <span class="btnIcon icon_sprite icon_cancel2" ></span>
+            <span class="btnText">Cancel</span>
+         </button>                 
+           
+            <div data-export="incidents"></div>	            
+        </div>
+        
+        <div data-pageable data-paging-info="searchResponse"  data-search-params="searchParams" data-change-page="changePage()">
+            <table class="dataTable">
+                <colgroup>
+                    <col class="doubleActionColumn">
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+       
+                           
+                </colgroup>
+                <tr>
+                    <th>Edit</th>
+	                <th data-sort-on-click data-sort-column="director" class="headerSortUp">director</th>
+                    <th data-sort-on-click data-sort-column="incidentNo">incidentNo</th>
+                    <th data-sort-on-click data-sort-column="overview">Executive Summary</th>
+                    <th data-sort-on-click data-sort-column="outcome">outcome</th>
+                    <th data-sort-on-click data-sort-column="status">status</th>
+                    <th data-sort-on-click data-sort-column="toolStatus">tool status</th>
+                    <th>Export</th>
+                </tr>
+                <tr data-ng-repeat="incident in searchResponse.searchResults">
+                    <td class="normalSpace">
+                        <div class="tableButtonGroup">
+                            <button data-ng-click="edit(incident)" class="boxBtn"><span class="btnIcon icon_sprite icon_edit2"></span></button>
+                        </div>
+                    </td>                    
+
+                    <td>{{incident.director}}</td>
+                    <td>{{incident.incidentNo}}</td>
+                    <td>{{incident.overview}}</td>
+                    <td>{{incident.outcome}}</td>
+                    <td>{{incident.status}}</td>
+                    <td>{{incident.toolStatus}}</td>
+                    <td><link rel="import" href="/statusTracker/src/main/webapp/resources/partials/export.html"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="clear"></div>
+</div>
+<div class="footer">
+		
+			<p style="margin-right: 30px;">&copy; General Motors</p>>
+			
+		
+
+		
+	</div>

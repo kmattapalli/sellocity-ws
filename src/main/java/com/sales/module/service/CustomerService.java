@@ -2,21 +2,21 @@ package com.sales.module.service;
 
 import com.sales.module.domain.CustomerInfo;
 import com.sales.module.domain.ProductValues;
-import com.sales.module.domain.SalesPlay;
-import com.sales.module.domain.SalesPlayMapping;
 import com.sales.module.domain.SalesPlayMappingInfo;
+import com.sales.module.domain.ScSalesplay;
+import com.sales.module.domain.ScSalesplayMapping;
 
 public interface CustomerService {
 
-	public SalesPlay createSalesPlay(CustomerInfo customerInfo,String userInfo,String imagePath);
+	public ScSalesplay createSalesPlay(CustomerInfo customerInfo,String userInfo,String imagePath);
 	
-	public SalesPlay addSalesPlayMapping(SalesPlayMappingInfo mappingInfo,Integer salesPlayId);
+	public ScSalesplay addSalesPlayMapping(SalesPlayMappingInfo mappingInfo,Integer salesPlayId);
 	
-	public SalesPlayMapping updateProductMapping(String  paingPointURl,String productURL,String specsURL,String manualURL,
+	public ScSalesplayMapping updateProductMapping(String  paingPointURl,String productURL,String specsURL,String manualURL,
 			String productInfo,Long mappingId ) ;
   
-	public SalesPlay findBySalesPlayIdWithMapping(Integer salesId);
+	public ScSalesplay findBySalesPlayIdWithMapping(Integer salesId);
 	
-	public SalesPlayMapping updateProductDetails(String  awardsURl,String claimsURL,String whitePapersURL,String testimonialURL,
+	public ScSalesplayMapping updateProductDetails(String  awardsURl,String claimsURL,String whitePapersURL,String testimonialURL,
 			Long mappingId,ProductValues productValues );
 }

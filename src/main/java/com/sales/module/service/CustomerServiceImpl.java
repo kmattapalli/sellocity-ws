@@ -18,21 +18,21 @@ import com.sales.module.dao.SalesPlayTestimonialsDAO;
 import com.sales.module.dao.SalesPlayValuesDAO;
 import com.sales.module.dao.StatusDAO;
 import com.sales.module.dao.UserDAO;
-import com.sales.module.domain.Clients;
-import com.sales.module.domain.Customer;
 import com.sales.module.domain.CustomerInfo;
 import com.sales.module.domain.ProductValues;
-import com.sales.module.domain.SalesPlay;
-import com.sales.module.domain.SalesPlayAwards;
-import com.sales.module.domain.SalesPlayClaims;
-import com.sales.module.domain.SalesPlayManuals;
-import com.sales.module.domain.SalesPlayMapping;
 import com.sales.module.domain.SalesPlayMappingInfo;
-import com.sales.module.domain.SalesPlaySpecs;
-import com.sales.module.domain.SalesPlayTestimonials;
-import com.sales.module.domain.SalesPlayValues;
-import com.sales.module.domain.Status;
-import com.sales.module.domain.User;
+import com.sales.module.domain.ScClient;
+import com.sales.module.domain.ScCustomer;
+import com.sales.module.domain.ScSalesplay;
+import com.sales.module.domain.ScSalesplayAward;
+import com.sales.module.domain.ScSalesplayClaim;
+import com.sales.module.domain.ScSalesplayManual;
+import com.sales.module.domain.ScSalesplayMapping;
+import com.sales.module.domain.ScSalesplaySpec;
+import com.sales.module.domain.ScSalesplayTestimonial;
+import com.sales.module.domain.ScSalesplayValue;
+import com.sales.module.domain.ScStatus;
+import com.sales.module.domain.ScUser;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
@@ -40,107 +40,118 @@ public class CustomerServiceImpl implements CustomerService {
 
 	
 	@Autowired
-	StatusDAO<Status> statusDao;
+	StatusDAO<ScStatus> statusDao;
 	
 	@Autowired
-	UserDAO<User> userDao;
+	UserDAO<ScUser> userDao;
 	
 	@Autowired
-	ClientDAO<Clients> clientDao;
+	ClientDAO<ScClient> clientDao;
 
 	@Autowired
-	CustomerDAO<Customer> customerDao;
+	CustomerDAO<ScCustomer> customerDao;
 	
 //	@Autowired
 //	SalesPersonDAO<SalesPerson> salesPerson;
 //	
 	@Autowired
-	SalesPlayDAO<SalesPlay> salesPlayDao;
+	SalesPlayDAO<ScSalesplay> salesPlayDao;
 	
 	@Autowired
-	SalesPlayMappingDAO<SalesPlayMapping> salesPlayMappingDao;
+	SalesPlayMappingDAO<ScSalesplayMapping> salesPlayMappingDao;
 	
 	@Autowired
-	SalesPlayManualsDAO<SalesPlayManuals> salesPlayManualDAO;
+	SalesPlayManualsDAO<ScSalesplayManual> salesPlayManualDAO;
 	
 	@Autowired
-	SalesPlaySpecsDAO<SalesPlaySpecs> salesPlaySpecsDAO;
+	SalesPlaySpecsDAO<ScSalesplaySpec> salesPlaySpecsDAO;
 	
 	@Autowired
-	SalesPlayValuesDAO<SalesPlayValues> salesPlayValuesDAO;
+	SalesPlayValuesDAO<ScSalesplayValue> salesPlayValuesDAO;
 	
 	@Autowired
-	SalesPlayTestimonialsDAO<SalesPlayTestimonials> salesPlayTestimonialsDAO;
+	SalesPlayTestimonialsDAO<ScSalesplayTestimonial> salesPlayTestimonialsDAO;
 	
 	@Autowired
-	SalesPlayAwardsDAO<SalesPlayAwards> salesPlayAwardsDAO;
+	SalesPlayAwardsDAO<ScSalesplayAward> salesPlayAwardsDAO;
 
 	@Autowired
-	SalesPlayClaimsDAO<SalesPlayClaims> salesPlayClaimsDAO;
-	public Status createStatus(){
-		Status status = new Status();
-		status.setDescription("Active");
-		return statusDao.persist(status);
+	SalesPlayClaimsDAO<ScSalesplayClaim> salesPlayClaimsDAO;
+	
+
+	
+	public ScStatus createStatus(){
+		List<ScStatus> statusList = statusDao.findAll();
+		ScStatus status = new ScStatus();
+		if(statusList != null && statusList.size()>0){
+			status = statusList.get(0);
+		}
+		return status;
 		
 	}
-	public User createUser(){
-		User user = new User();
-		user.setuName("test");
-		user.setPassword("password");
-		user.setStatus(createStatus());
-		return userDao.persist(user);
+	public ScUser createUser(){
+		List<ScUser> userList = userDao.findAll();
+		ScUser user = new ScUser();
+		if(userList != null && userList.size()>0){
+			user = userList.get(0);
+		}
+		return user;
 		
 	}	
-	public Customer createCustomer(){
-		Customer customer = new Customer();
-		customer.setName("Dell");
-		customer.setStatus(createStatus());
-		return customerDao.persist(customer);
+	public ScCustomer createCustomer(){
+		List<ScCustomer> customerList = customerDao.findAll();
+		
+		ScCustomer customer = new ScCustomer();
+		if(customerList != null && customerList.size()>0){
+			customer = customerList.get(0);
+		}
+		return customer;
 		
 	}	
-	public SalesPlay createSalesPlay(CustomerInfo customerInfo,String userInfo,String imagePath){
+	public ScSalesplay createSalesPlay(CustomerInfo customerInfo,String userInfo,String imagePath){
 		
-		//List<SalesPlayMapping> salesPlayMappingList = new ArrayList<SalesPlayMapping>();
-		Clients clients = new Clients();
-		Customer cust = createCustomer();
-		clients.setCustomer(cust);
+		//List<ScSalesplayMapping> salesPlayMappingList = new ArrayList<ScSalesplayMapping>();
+		ScClient clients = new ScClient();
+		clients.setCountry("USA");
+		ScCustomer cust = createCustomer();
+		clients.setScCustomer(cust);
 		clients.setLogo(imagePath);
 		clients.setName(customerInfo.getClientName());
 		clients = clientDao.persist(clients);
 
 		
-		SalesPlay salesPlay =new SalesPlay();
-		salesPlay.setCustomer(cust);
-		salesPlay.setUser(createUser());
-		salesPlay.setClients(clients);
+		ScSalesplay salesPlay =new ScSalesplay();
+		salesPlay.setScCustomer(cust);
+		salesPlay.setScUser1(createUser());
+		salesPlay.setScClient(clients);
 		salesPlay.setClientContactName(customerInfo.getCustomerClientContact());
 		salesPlay.setClientContactEmail(customerInfo.getCustomerClientEmail());
-		salesPlay.setSalesPlayName(customerInfo.getSalesPlayName());
+		salesPlay.setName(customerInfo.getSalesPlayName());
 		salesPlay = salesPlayDao.persist(salesPlay);
 //		
 //		if(customerInfo.getPainPoint1() != null){
-//			SalesPlayMapping mapping = new SalesPlayMapping();
+//			ScSalesplayMapping mapping = new ScSalesplayMapping();
 //			mapping.setSalesPlay(salesPlay);
 //			mapping.setPainPoint(customerInfo.getPainPoint1() );
 //			mapping = customerDAO.save(mapping);
 //			salesPlayMappingList.add(mapping);
 //		}
 //		if(customerInfo.getPainPoint2() != null){
-//			SalesPlayMapping mapping = new SalesPlayMapping();
+//			ScSalesplayMapping mapping = new ScSalesplayMapping();
 //			mapping.setSalesPlay(salesPlay);
 //			mapping.setPainPoint(customerInfo.getPainPoint2() );
 //			mapping = customerDAO.save(mapping);
 //			salesPlayMappingList.add(mapping);
 //		}
 //		if(customerInfo.getPainPoint3() != null){
-//			SalesPlayMapping mapping = new SalesPlayMapping();
+//			ScSalesplayMapping mapping = new ScSalesplayMapping();
 //			mapping.setSalesPlay(salesPlay);
 //			mapping.setPainPoint(customerInfo.getPainPoint3() );
 //			mapping = customerDAO.save(mapping);
 //			salesPlayMappingList.add(mapping);
 //		}
 //		if(customerInfo.getPainPoint4() != null){
-//			SalesPlayMapping mapping = new SalesPlayMapping();
+//			ScSalesplayMapping mapping = new ScSalesplayMapping();
 //			mapping.setSalesPlay(salesPlay);
 //			mapping.setPainPoint(customerInfo.getPainPoint4() );
 //			mapping = customerDAO.save(mapping);
@@ -150,10 +161,10 @@ public class CustomerServiceImpl implements CustomerService {
 		return salesPlay;	
 		
 	}
-	public SalesPlay addSalesPlayMapping(SalesPlayMappingInfo mappingInfo,Integer salesPlayId){
+	public ScSalesplay addSalesPlayMapping(SalesPlayMappingInfo mappingInfo,Integer salesPlayId){
 		
-		SalesPlay salesPlay = salesPlayDao.findBySalesPlayId(salesPlayId);
-		List<SalesPlayMapping> mappingList = new ArrayList<SalesPlayMapping>();
+		ScSalesplay salesPlay = salesPlayDao.findByScSalesplayId(salesPlayId);
+		List<ScSalesplayMapping> mappingList = new ArrayList<ScSalesplayMapping>();
 		if(mappingInfo.getPainPoint1() != null){
 			mappingList.add(createSalesMapping(mappingInfo.getPainPoint1(), salesPlay));
 		}
@@ -166,60 +177,60 @@ public class CustomerServiceImpl implements CustomerService {
 		if(mappingInfo.getPainPoint4() != null){
 			mappingList.add(createSalesMapping(mappingInfo.getPainPoint4(), salesPlay));
 		}
-		salesPlay.setSalesPlayMapping(mappingList);
+		salesPlay.setScSalesplayMappings(mappingList);
 		return salesPlay;
 	}
-	private SalesPlayMapping createSalesMapping(String  paingPoint, SalesPlay salesPlay) {
-		SalesPlayMapping salesPlayMapping  = new SalesPlayMapping();
+	private ScSalesplayMapping createSalesMapping(String  paingPoint, ScSalesplay salesPlay) {
+		ScSalesplayMapping salesPlayMapping  = new ScSalesplayMapping();
 		salesPlayMapping.setPainPoint(paingPoint);
-		salesPlayMapping.setSalesPlay(salesPlay);
-		salesPlayMapping.setStatus(salesPlay.getStatus());
+		salesPlayMapping.setScSalesplay(salesPlay);
+		salesPlayMapping.setScStatus(salesPlay.getScStatus());
 		salesPlayMappingDao.persist(salesPlayMapping);
 		return salesPlayMapping;
 	}
-	public SalesPlayMapping updateProductMapping(String  paingPointURl,String productURL,String specsURL,String manualURL,
+	public ScSalesplayMapping updateProductMapping(String  paingPointURl,String productURL,String specsURL,String manualURL,
 				String productInfo,Long mappingId ) {
-		SalesPlayMapping salesPlayMapping = salesPlayMappingDao.findBySalesPlayMappingId(mappingId);
+		ScSalesplayMapping salesPlayMapping = salesPlayMappingDao.findByScSalesplayMappingId(mappingId);
 		salesPlayMapping.setPainPointImage(paingPointURl);
 		salesPlayMapping.setProductImage(productURL);
 		salesPlayMapping.setProductInfo(productInfo);
 		salesPlayMappingDao.update(salesPlayMapping);
-		SalesPlayManuals manuals = new SalesPlayManuals();
+		ScSalesplayManual manuals = new ScSalesplayManual();
 		manuals.setName(productInfo);
 		manuals.setUrl(manualURL);
 		salesPlayManualDAO.persist(manuals);
-		SalesPlaySpecs specs = new SalesPlaySpecs();
+		ScSalesplaySpec specs = new ScSalesplaySpec();
 		specs.setName(productInfo);
 		specs.setUrl(specsURL);
 		salesPlaySpecsDAO.persist(specs);
 
 		return salesPlayMapping;
 	}
-	public SalesPlayMapping updateProductDetails(String  awardsURl,String claimsURL,String whitePapersURL,String testimonialURL,
+	public ScSalesplayMapping updateProductDetails(String  awardsURl,String claimsURL,String whitePapersURL,String testimonialURL,
 			Long mappingId,ProductValues productValues ) {
-	SalesPlayMapping salesPlayMapping = salesPlayMappingDao.findBySalesPlayMappingId(mappingId);
+	ScSalesplayMapping salesPlayMapping = salesPlayMappingDao.findByScSalesplayMappingId(mappingId);
 
-	SalesPlayAwards awards = new SalesPlayAwards();
+	ScSalesplayAward awards = new ScSalesplayAward();
 	awards.setImageUrl(awardsURl);
-	awards.setSalesPlayMapping(salesPlayMapping);
+	awards.setScSalesplayMapping(salesPlayMapping);
 	salesPlayAwardsDAO.persist(awards);
 
-	SalesPlayClaims claims = new SalesPlayClaims();
+	ScSalesplayClaim claims = new ScSalesplayClaim();
 	claims.setImageUrl(claimsURL);
-	claims.setSalesPlayMapping(salesPlayMapping);
+	claims.setScSalesplayMapping(salesPlayMapping);
 	salesPlayClaimsDAO.persist(claims);	
 
-	SalesPlayTestimonials testimonials = new SalesPlayTestimonials();
+	ScSalesplayTestimonial testimonials = new ScSalesplayTestimonial();
 	testimonials.setImageUrl(claimsURL);
-	testimonials.setSalesPlayMapping(salesPlayMapping);
+	testimonials.setScSalesplayMapping(salesPlayMapping);
 	salesPlayTestimonialsDAO.persist(testimonials);	
 	
 	return salesPlayMapping;
 	}	
 	
 	
-	public SalesPlay findBySalesPlayIdWithMapping(Integer salesId){
-		return salesPlayDao.findBySalesPlayIdWithMapping(salesId);
+	public ScSalesplay findBySalesPlayIdWithMapping(Integer salesId){
+		return salesPlayDao.findByScSalesplayIdWithMapping(salesId);
 	}
  
 }

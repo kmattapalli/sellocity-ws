@@ -4,20 +4,20 @@ package com.sales.module.persistence;
 import org.springframework.stereotype.Repository;
 
 import com.sales.module.dao.SalesPlayValuesDAO;
-import com.sales.module.domain.SalesPlayValues;
+import com.sales.module.domain.ScSalesplayValue;
 
 @Repository
-public class SalesPlayValuesHibernateDao extends SelloCityHibernateDao<SalesPlayValues> implements SalesPlayValuesDAO<SalesPlayValues>{
+public class SalesPlayValuesHibernateDao extends SelloCityHibernateDao<ScSalesplayValue> implements SalesPlayValuesDAO<ScSalesplayValue>{
  	
-	  public Class<SalesPlayValues> getPersistentClass() {
-	    return SalesPlayValues.class;
+	  public Class<ScSalesplayValue> getPersistentClass() {
+	    return ScSalesplayValue.class;
 	  }
 
 //
 //
 //	@Override
-//	public SalesPlayValues findByTestimonialId(Integer testimonialId) {
-//		List<SalesPlayValues> playList= findByCriteria(Restrictions.eq("testimonialId",testimonialId));
+//	public ScSalesplayValue findByTestimonialId(Integer testimonialId) {
+//		List<ScSalesplayValue> playList= findByCriteria(Restrictions.eq("testimonialId",testimonialId));
 //		if(playList != null && playList.size() >=0){
 //			return playList.get(0);
 //		}

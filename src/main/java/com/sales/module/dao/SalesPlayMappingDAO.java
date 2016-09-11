@@ -1,7 +1,7 @@
 package com.sales.module.dao;
 
-public interface SalesPlayMappingDAO<SalesPlayMapping>  extends SelloCityDao<SalesPlayMapping>{
+public interface SalesPlayMappingDAO<ScSalesplayMapping>  extends SelloCityDao<ScSalesplayMapping>{
 
-	public SalesPlayMapping findBySalesPlayMappingId(Long spIdValue);
+	public ScSalesplayMapping findByScSalesplayMappingId(Long spIdValue);
   
 }

@@ -1,0 +1,82 @@
+<div class="secContent"> 
+<div data-ng-repeat="error in errors">
+    <div><span class="icon_sprite icon_error error"></span>{{error}}</div>
+</div>
+           
+<div data-ng-form="customerForm" >
+    <div data-ng-show="customerForm.$dirty" class="dirtynag">* Warning: You have unsaved changes</div>
+    <div class="fieldGroup">
+    <h5 class="clientLayout">Customer Information <span class="control-label-required">Indicates required field</span></h5>
+    <ul class="clientLayout">
+         <li>
+          
+            <span> 
+                <label class="control-label" for="customer.custId" required>Customer No:</label>
+                      <input type="text" name="customer.custId" data-ng-model="customer.custId" />
+                  </span>                              
+                </li>                               
+          
+
+        <li>
+            <span> 
+                <label class="control-label" for="customer.name" >Customer Namer :</label>
+                <input type="text" name="customer.name" data-ng-model="customer.name" />
+            </span>
+         </li>
+ 
+        <li>
+            <span> 
+                <label class="control-label" for="customer.type" >Customer Type:</label>
+                <input type="text" name="customer.type" data-ng-model="customer.type"  />
+            </span>
+         </li>
+        <li>
+            <span> 
+                <label class="control-label" for="customer.vertical" >Customer Vertical:</label>
+                <input type="text" name="customer.vertical" data-ng-model="customer.vertical"  />
+            </span>
+         </li>
+       
+        <li>
+            <span> 
+                <label class="control-label" for="customer.country" >Customer Country:</label>
+                <input type="text" name="customer.country" data-ng-model="customer.country"  />
+            </span>
+         </li>
+ 
+        <li>
+            <span> 
+                <label class="control-label" for="customer.state" >Customer State:</label>
+                <input type="text" name="customer.state" data-ng-model="customer.state"  />
+            </span>
+         </li>
+         <li>
+            <span> 
+                <label class="control-label" for="customer.city" >Customer City:</label>
+                <input type="text" name="customer.city" data-ng-model="customer.city"  />
+            </span>
+         </li>
+        <li>
+            <span> 
+                <label class="control-label" for="customer.state" >Customer State:</label>
+                <input type="text" name="customer.state" data-ng-model="customer.state"  />
+            </span>
+         </li>         
+ 
+    
+    </ul>
+ 
+         <button type="button" class="boxBtn"  data-ng-click="save(customer)">
+            <span class="btnIcon icon_sprite icon_save2" ></span>
+            <span class="btnText">Update Customer</span>
+         </button>       
+         <button type="button" class="boxBtn"  data-ng-click="cancel()">
+            <span class="btnIcon icon_sprite icon_save2" ></span>
+            <span class="btnText">Cancel</span>
+         </button>          
+       </div>
+ 
+</div>
+
+
+ </div><div class="clear"></div>

@@ -1,8 +1,8 @@
 package com.sales.module.dao;
 
-public interface SalesPlayAwardsDAO<SalesPlayAwards> extends SelloCityDao<SalesPlayAwards>{
+public interface SalesPlayAwardsDAO<ScSalesplayAwards> extends SelloCityDao<ScSalesplayAwards>{
 	
-	public SalesPlayAwards findByAwardId(Integer awardId);
+	public ScSalesplayAwards findByAwardId(Integer awardId);
 
 
   

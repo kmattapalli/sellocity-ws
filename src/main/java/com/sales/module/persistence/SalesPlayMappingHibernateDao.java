@@ -7,21 +7,21 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.sales.module.dao.SalesPlayMappingDAO;
-import com.sales.module.domain.SalesPlayMapping;
+import com.sales.module.domain.ScSalesplayMapping;
 
 @Repository
-public class SalesPlayMappingHibernateDao extends SelloCityHibernateDao<SalesPlayMapping> implements SalesPlayMappingDAO<SalesPlayMapping>{
+public class SalesPlayMappingHibernateDao extends SelloCityHibernateDao<ScSalesplayMapping> implements SalesPlayMappingDAO<ScSalesplayMapping>{
  
 
 	
 	
-  public Class<SalesPlayMapping> getPersistentClass() {
-    return SalesPlayMapping.class;
+  public Class<ScSalesplayMapping> getPersistentClass() {
+    return ScSalesplayMapping.class;
   }
 
 	@Override
-	public SalesPlayMapping findBySalesPlayMappingId(Long spIdValue) {
-		List<SalesPlayMapping> playList= findByCriteria(Restrictions.eq("salesPlayKey",spIdValue));
+	public ScSalesplayMapping findByScSalesplayMappingId(Long spIdValue) {
+		List<ScSalesplayMapping> playList= findByCriteria(Restrictions.eq("spmapId",spIdValue));
 		if(playList != null && playList.size() >=0){
 			return playList.get(0);
 		}

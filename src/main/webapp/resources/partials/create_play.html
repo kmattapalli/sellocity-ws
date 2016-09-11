@@ -21,48 +21,73 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<style type="text/css">
+	  .input.ng-invalid.ng-touched {
+	    background-color: #FA787E;
+	  }
+	
+	  .input.ng-valid.ng-touched {
+	    background-color: #78FA89;
+	  }
+	</style>
     <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js">
+
+    </script>
 
     <link rel="stylesheet" type="text/css" href="resources/css/styles.css" />
- <!--    <script src="resources/js/create_play.js"></script> -->
+
 
 </head>
 <body>
-    <div class="container-fluid" id="wrapper">
+    <div class="content container-fluid" id="wrapper">
         <div class="row container valign-wrapper">
             <div class="col l4">
                 <img src="resources/images/cust.jpg" />
             </div>
-            <form class="col l8 left-border">
+            <form name="myForm" class="col l8 left-border" method="POST" enctype="multipart/form-data">
                 <h4 class="center-align">Let's craft your sales play!</h4>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="play-name" type="text" class="">
+                        <input id="play-name" type="text" class=""  name="salesPlayName" data-ng-model="customerInfo.salesPlayName" required>
+                      <span data-ng-show="myForm.salesPlayName.$touched && myForm.salesPlayName.$invalid" style="color:red;">The name of Sales Play required.</span>
                         <label for="play-name">Name of this Sales Play</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="client-name" type="text" class="">
+                        <input id="client-name" type="text" class="" name="clientName" data-ng-model="customerInfo.clientName" required>
+                        <span data-ng-show="myForm.clientName.$touched && myForm.clientName.$invalid" style="color:red;">Client Name required.</span>
                         <label for="client-name">Who is your client?</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="receiver-name" type="text" class="">
+                        <input id="receiver-name" type="text" class="" name="customerClientContact" data-ng-model="customerInfo.customerClientContact" required>
+                       <span data-ng-show="myForm.customerClientContact.$touched && myForm.customerClientContact.$invalid" style="color:red;" >Client Contact required.</span>
                         <label for="receiver-name">Who will you send this sales play to?</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="receiver-email" type="text" class="">
-                        <label for="receiver-email">Client name</label>
+                        <input id="receiver-email" type="email" class="" name="customerClientEmail" data-ng-model="customerInfo.customerClientEmail" required>
+                        <span data-ng-show="myForm.customerClientEmail.$touched && myForm.customerClientEmail.$invalid" style="color:red;" >Enter valid email address</span>
+                        <label for="receiver-email">Client Email </label>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="input-field col s12">
+                     <label for="clientLogo">Client Logo</label>
+                    <!--  <form id="fileupload" <form > -->
+                       <input type="file" data-file-model="clientLogo" class=""  >
+	                   
+	                 <!--  </form> -->
                     </div>
                 </div>
                 <div class="row ">
                     <div class="input-field col s12 center-align">
-                        <a class="waves-effect waves-light btn" href="create_play_1.html">Next &nbsp;<i class="icon ion-android-arrow-forward"></i></a>
+                        <a class="waves-effect waves-light btn" href="#" data-ng-click="addSalesPlay(customerInfo)">Next &nbsp;<i class="icon ion-android-arrow-forward"></i></a>
                     </div>
                 </div>
             </form>

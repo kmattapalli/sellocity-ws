@@ -7,20 +7,20 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.sales.module.dao.SalesPlayTestimonialsDAO;
-import com.sales.module.domain.SalesPlayTestimonials;
+import com.sales.module.domain.ScSalesplayTestimonial;
 
 @Repository
-public class SalesPlayTestimonialsHibernateDao extends SelloCityHibernateDao<SalesPlayTestimonials> implements SalesPlayTestimonialsDAO<SalesPlayTestimonials>{
+public class SalesPlayTestimonialsHibernateDao extends SelloCityHibernateDao<ScSalesplayTestimonial> implements SalesPlayTestimonialsDAO<ScSalesplayTestimonial>{
  	
-	  public Class<SalesPlayTestimonials> getPersistentClass() {
-	    return SalesPlayTestimonials.class;
+	  public Class<ScSalesplayTestimonial> getPersistentClass() {
+	    return ScSalesplayTestimonial.class;
 	  }
 
 
 
 	@Override
-	public SalesPlayTestimonials findByTestimonialId(Integer testimonialId) {
-		List<SalesPlayTestimonials> playList= findByCriteria(Restrictions.eq("testimonialId",testimonialId));
+	public ScSalesplayTestimonial findByTestimonialId(Integer testimonialId) {
+		List<ScSalesplayTestimonial> playList= findByCriteria(Restrictions.eq("testimonialId",testimonialId));
 		if(playList != null && playList.size() >=0){
 			return playList.get(0);
 		}

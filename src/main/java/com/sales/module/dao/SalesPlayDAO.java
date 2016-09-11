@@ -1,10 +1,10 @@
 package com.sales.module.dao;
 
-public interface SalesPlayDAO<SalesPlay> extends SelloCityDao<SalesPlay>{
+public interface SalesPlayDAO<ScSalesplay> extends SelloCityDao<ScSalesplay>{
 	
-	public SalesPlay findBySalesPlayId(Integer spIdValue);
+	public ScSalesplay findByScSalesplayId(Integer spIdValue);
 
-	public SalesPlay findBySalesPlayIdWithMapping(Integer spIdValue);
+	public ScSalesplay findByScSalesplayIdWithMapping(Integer spIdValue);
 
   
 }

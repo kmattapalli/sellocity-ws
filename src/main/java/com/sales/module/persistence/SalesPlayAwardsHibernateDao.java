@@ -7,20 +7,20 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.sales.module.dao.SalesPlayAwardsDAO;
-import com.sales.module.domain.SalesPlayAwards;
+import com.sales.module.domain.ScSalesplayAward;
 
 @Repository
-public class SalesPlayAwardsHibernateDao extends SelloCityHibernateDao<SalesPlayAwards> implements SalesPlayAwardsDAO<SalesPlayAwards>{
+public class SalesPlayAwardsHibernateDao extends SelloCityHibernateDao<ScSalesplayAward> implements SalesPlayAwardsDAO<ScSalesplayAward>{
  	
-	  public Class<SalesPlayAwards> getPersistentClass() {
-	    return SalesPlayAwards.class;
+	  public Class<ScSalesplayAward> getPersistentClass() {
+	    return ScSalesplayAward.class;
 	  }
 
 
 
 	@Override
-	public SalesPlayAwards findByAwardId(Integer awardId) {
-		List<SalesPlayAwards> playList= findByCriteria(Restrictions.eq("awardId",awardId));
+	public ScSalesplayAward findByAwardId(Integer awardId) {
+		List<ScSalesplayAward> playList= findByCriteria(Restrictions.eq("awardId",awardId));
 		if(playList != null && playList.size() >=0){
 			return playList.get(0);
 		}

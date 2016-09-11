@@ -14,8 +14,7 @@ tracker.controller('ProductInfoController', ['$scope','$location','$window', '$s
 			$state.transitionTo("productdetails");
 		};
 	    $scope.addProductInfo = function(customerData,mappingId){
-//	    	var test = $scope.customerProduct[0].productInfo;
-//	    	var aa =  $scope.customerInfo[0];
+
 	    	$scope.savingIndicator = true;
 			SalesPlayService.addProductData(customerData,mappingId).then(
 					function(response) {

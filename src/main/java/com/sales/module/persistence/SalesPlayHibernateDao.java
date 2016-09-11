@@ -9,34 +9,35 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.sales.module.dao.SalesPlayDAO;
-import com.sales.module.domain.SalesPlay;
+import com.sales.module.domain.ScSalesplay;
 
 @Repository
-public class SalesPlayHibernateDao extends SelloCityHibernateDao<SalesPlay> implements SalesPlayDAO<SalesPlay>{
+public class SalesPlayHibernateDao extends SelloCityHibernateDao<ScSalesplay> implements SalesPlayDAO<ScSalesplay>{
  
-	public SalesPlay findBySalesPlayId(Integer spIdValue){
-		List<SalesPlay> playList= findByCriteria(Restrictions.eq("spId",spIdValue));
+	public ScSalesplay findByScSalesplayId(Integer spIdValue){
+		List<ScSalesplay> playList= findByCriteria(Restrictions.eq("spId",spIdValue));
 		
 		if(playList != null && playList.size() >=0){
 			return playList.get(0);
 		}
 		return null;
 	}
-	public SalesPlay findBySalesPlayIdWithMapping(Integer spIdValue){
-		 SalesPlay salesPlayObj=new SalesPlay();;
+	public ScSalesplay findByScSalesplayIdWithMapping(Integer spIdValue){
+		 ScSalesplay salesPlayObj=new ScSalesplay();;
 		 Criteria crit = getSession().createCriteria(getPersistentClass());
-		 crit.add(Restrictions.eq("spId",spIdValue));
-		 List<SalesPlay> playList= (List<SalesPlay>)crit.list();
+		 crit.add(Restrictions.eq("spid",spIdValue));
+		 List<ScSalesplay> playList= (List<ScSalesplay>)crit.list();
 		 if(playList != null && playList.size() >=0){
 			salesPlayObj = playList.get(0);
 		 }
-		 Hibernate.initialize(salesPlayObj.getSalesPlayMapping());
+		 Hibernate.initialize(salesPlayObj.getScSalesplayMappings());
 		return salesPlayObj;
 	}
 
-	  public Class<SalesPlay> getPersistentClass() {
-	    return SalesPlay.class;
+	  public Class<ScSalesplay> getPersistentClass() {
+	    return ScSalesplay.class;
 	  }
+
 
  
  

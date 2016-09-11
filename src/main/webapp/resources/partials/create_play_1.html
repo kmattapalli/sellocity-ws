@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!--JQuery-->
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+    <!--Material Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <!--ionicons-->
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+
+
+    <link rel="stylesheet" type="text/css" href="resources/css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="resources/css/sellocity.css" />
+    <script src=""></script>
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row margin-top">
+            <div class="col m9">
+                <ul class="nav nav-tabs nav-justified">
+                    <li role="presentation" class="active"><a href="#">1</a></li>
+                    <li role="presentation" class="disabled"><a href="#">2</a></li>
+                    <li role="presentation" class="disabled"><a href="#">3</a></li>
+                    <li role="presentation" class="disabled"><a href="#">4</a></li>
+                    <li role="presentation" class="disabled"><a href="#">5</a></li>
+                </ul>
+            </div>
+
+            <div class="col m3">
+                <div class="row left-border">
+                    <div class="col m12 center">
+                        <!-- Dropdown Trigger -->
+                        <a class='dropdown-button' href='#' data-beloworigin="true" data-hover='true' data-activates='dropdown1'>Kevin &nbsp; <i class="glyphicon glyphicon-triangle-bottom"></i></a>
+
+                        <!-- Dropdown Structure -->
+                        <ul id='dropdown1' class='dropdown-content'>
+                            <li><a href="index.html">Dashboard</a></li>
+                            <li><a href="#!">Edit Customer Info</a></li>
+                            <li><a href="manage_profile.html">Edit Your Profile</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#!">Save & Logout</a></li>
+                        </ul>
+                    </div>
+                    <div class="col m12 center top-border"><h6>Pixar performance play</h6></div>
+                </div>
+            </div>
+        </div>
+        <div id="tab1-wrapper">
+            <div class="row top-border bottom-border">
+                <div class="col m12 center">
+                    <h6>Welcome <span class="sales-person">Kevin</span> you are just five steps away from designing your sales play</h6>
+                </div>
+            </div>
+            <div id="" class="row">
+                <div class="col m12 container-fluid teal lighten-4">
+                    <h6 class="center">Describe Pixar's pain points</h6>
+                    <div class="row container-fluid valign-wrapper white">
+                        <div class="col m4">
+                            <h5>Customer Challenges:</h5>
+                            <p>
+                                Here you will list upto 4 challenges or opportunities your client is facing
+                                currently which your product/service will help solve.
+                            </p>
+                        </div>
+                        <form class="col m8 left-border margin-top margin-bottom">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input placeholder="GPU Performance issues" id="pp1" type="text" name="painPoint1" class="" data-ng-model="customerInfo.painPoint1" >
+                                    <label for="pp1">Pain point 1</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input placeholder="Cost" id="pp2" type="text" class="" name="painPoint2" data-ng-model="customerInfo.painPoint2">
+                                    <label for="pp2">Pain point 2</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input placeholder="RAM Sizing" id="pp3" type="text" class="" name="painPoint3" data-ng-model="customerInfo.painPoint3" >
+                                    <label for="pp3">Pain point 3</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input placeholder="4K Rendering" id="pp4" type="text" class="" name="painPoint4" data-ng-model="customerInfo.painPoint4" >
+                                    <label for="pp4">Pain point 4</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row margin-bottom">
+                        <div class="input-field col s12 center-align">
+                            <a class="waves-effect waves-light btn" title="Save & Continue" href="#" data-ng-click="addPaintPoints(customerInfo)">Next &nbsp;<i class="icon ion-android-arrow-forward"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

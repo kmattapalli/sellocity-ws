@@ -1,6 +1,6 @@
 package com.sales.module.dao;
 
-public interface SalesPlayValuesDAO<SalesPlayValues> extends SelloCityDao<SalesPlayValues>{
+public interface SalesPlayValuesDAO<ScSalesplayValues> extends SelloCityDao<ScSalesplayValues>{
 
 
 

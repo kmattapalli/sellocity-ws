@@ -4,14 +4,14 @@ package com.sales.module.persistence;
 import org.springframework.stereotype.Repository;
 
 import com.sales.module.dao.UserDAO;
-import com.sales.module.domain.User;
+import com.sales.module.domain.ScUser;
 
 @Repository
-public class UserHibernateDao extends SelloCityHibernateDao<User> implements UserDAO<User>{
+public class UserHibernateDao extends SelloCityHibernateDao<ScUser> implements UserDAO<ScUser>{
  
 
-  public Class<User> getPersistentClass() {
-    return User.class;
+  public Class<ScUser> getPersistentClass() {
+    return ScUser.class;
   }
 
  
