@@ -75,21 +75,24 @@
                         <label for="receiver-email">Client Email </label>
                     </div>
                 </div>
-                <div class="row">
-
-                    <div class="input-field col s12">
-                     <label for="clientLogo">Client Logo</label>
-                    <!--  <form id="fileupload" <form > -->
-                       <input type="file" data-file-model="clientLogo" class=""  >
-	                   
-	                 <!--  </form> -->
-                    </div>
-                </div>
-                <div class="row ">
-                    <div class="input-field col s12 center-align">
-                        <a class="waves-effect waves-light btn" href="#" data-ng-click="addSalesPlay(customerInfo)">Next &nbsp;<i class="icon ion-android-arrow-forward"></i></a>
-                    </div>
-                </div>
+               <div class="row">
+                    
+               <div id="cust-image" class="file-field input-field">
+                   <div class="btn btn-flat">
+                       <span class=""><img src="resources/images/upload_icon.png" height="40" width="40" /></span>
+                       <input type="file" data-file-model="clientLogo" />
+                   </div>
+                   <div class="file-path-wrapper">
+                       <input class="file-path validate" type="text">
+                       <label for="cust-image">Customer Image</label>
+                   </div>
+               </div>
+           </div>
+           <div class="row ">
+               <div class="input-field col s12 center-align">
+                   <a class="waves-effect waves-light" href="#" data-ng-click="addSalesPlay(customerInfo)"><img src="resources/images/arrowforcreate_SP.png" height="80" width="75" /></a>
+               </div>
+           </div>
             </form>
         </div>
     </div>

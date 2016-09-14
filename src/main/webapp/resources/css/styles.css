@@ -41,8 +41,11 @@ border-radius: 15px;
     height: 20px !important;
     width: 300px !important;
 }
-#name, #email, #number, #designation, #city, #vertical{
+#email, #number, #designation, #city, #vertical{
     width: 400px !important;
+}
+#first-name, #last-name{
+    width: 200px !important;
 }
 .icon-person-male::before{
     //display: inline-table !important;
@@ -59,8 +62,13 @@ border-radius: 15px;
     height: auto !important;
     height: 100%;
 }
-ul#tabs li{
+ul#tabs li, .inline{
     display: inline;
+}
+.modal{
+    width: auto !important;
+    background-color: transparent !important;
+    max-height: none !important;
 }
 .size-18{
     font-size: 18px !important;
@@ -75,6 +83,15 @@ ul#tabs li{
 .size-60{
     font-size: 60px !important;
 }
+.font-125{
+    font-size: 125%;
+}
+.big-line-height{
+    line-height: 200%;
+}
+.underline{
+    text-decoration: underline;
+}
 .btn{
     text-transform: none !important;
 }
@@ -84,20 +101,20 @@ ul#tabs li{
 .left-align{
     text-align: left !important;
 }
-.right-margin{
-    margin-right: 25px;
-}
-.top-margin{
-    margin-top: 6px;
-}
 .margin-top{
     margin-top: 20px;
 }
-.left-margin{
-    margin-left: 25px;
+.margin-top-8{
+    margin-top: 7px;
+}
+.margin-left{
+    margin-left: 20px;
 }
 .left-padding{
     padding-left: 25px;
+}
+.navbar-fixed-top{
+    height: 75px !important;
 }
 .nav-wrapper{
     margin-top: 50px !important;
@@ -130,19 +147,27 @@ ul#tabs li{
 .no-margin-left{
     margin-left: 0 !important;
 }
+.no-margin-top{
+    margin-top: 0 !important;
+} 
+.caret{
+    display: none !important;
+}
 .bottom-border{
     border-bottom: solid;
     border-bottom-width: medium;
     border-bottom-color: gray;
 }
-
+p{
+    padding: 0 !important;
+}
 .top-border{
     border-top: solid;
     border-top-width: medium;
     border-top-color: gray;
 }
 form{
-    padding-left: 50px !important;
+    //padding-left: 50px !important;
 }
 
 svg{
@@ -156,14 +181,26 @@ svg{
     border-radius: 100%;
 }
 .circle-green {
-    background: green;
+    background: #83db64;
     border: 2px solid #000;
 }
 .circle-blue {
-    background: #2c77ba;
+    background: #4fa1e6;
     border: 2px solid #000;
 }
 .circle-yellow {
     background: #f8e805;
     border: 2px solid #000;
+}
+.back-green{
+    background: #83db64;
+    color: black;
+}
+.back-blue{
+    background: #4fa1e6;
+    color: black;
+}
+.back-yellow{
+    background: #f8e805;
+    color: black;
 }
