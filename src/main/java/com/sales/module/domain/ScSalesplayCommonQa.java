@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 /**
  * The persistent class for the SC_SALESPLAY_COMMON_QA database table.
@@ -30,7 +32,9 @@ public class ScSalesplayCommonQa implements Serializable {
 	private String imageUrl;
 	private Timestamp lastupdatedDate;
 	private String question;
+	@JsonIgnore
 	private ScSalesplayMapping scSalesplayMapping;
+	@JsonIgnore
 	private ScStatus scStatus;
 
 	public ScSalesplayCommonQa() {

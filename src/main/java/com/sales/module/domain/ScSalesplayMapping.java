@@ -2,6 +2,7 @@ package com.sales.module.domain;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +13,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 /**
@@ -21,6 +29,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="SC_SALESPLAY_MAPPING")
+@JsonIgnoreProperties(ignoreUnknown = true)
 @NamedQuery(name="ScSalesplayMapping.findAll", query="SELECT s FROM ScSalesplayMapping s")
 public class ScSalesplayMapping implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -34,20 +43,30 @@ public class ScSalesplayMapping implements Serializable {
 	private String productInfo;
 	private String productName;
 	private String title;
+	@JsonIgnore
 	private ScProduct scProduct;
+	@JsonIgnore
 	private ScSalesplay scSalesplay;
 	private ScStatus scStatus;
 	
-	/*private List<ScCompetetiveCompare> scCompetetiveCompares;
+	
+	private List<ScCompetetiveCompare> scCompetetiveCompares;
+
 	private List<ScSalesplayAward> scSalesplayAwards;
+	
 	private List<ScSalesplayBenefit> scSalesplayBenefits;
+
 	private List<ScSalesplayClaim> scSalesplayClaims;
+	
 	private List<ScSalesplayCommonQa> scSalesplayCommonQas;
+	
 	private List<ScSalesplayManual> scSalesplayManuals;
 
 	private List<ScSalesplaySpec> scSalesplaySpecs;
+
 	private List<ScSalesplayTestimonial> scSalesplayTestimonials;
-	private List<ScSalesplayValue> scSalesplayValues;*/
+	
+	private List<ScSalesplayValue> scSalesplayValues;
 
 	public ScSalesplayMapping() {
 	}
@@ -190,8 +209,9 @@ public class ScSalesplayMapping implements Serializable {
 	}
 
 
-/*	//bi-directional many-to-one association to ScCompetetiveCompare
-    @OneToMany(mappedBy="scCompetetiveCompare")
+	//bi-directional many-to-one association to ScCompetetiveCompare
+    @OneToMany(mappedBy="scSalesplayMapping",fetch = FetchType.LAZY)
+    @JsonIgnore
 	public List<ScCompetetiveCompare> getScCompetetiveCompares() {
 		return this.scCompetetiveCompares;
 	}
@@ -216,7 +236,8 @@ public class ScSalesplayMapping implements Serializable {
 
 
 	//bi-directional many-to-one association to ScSalesplayAward
-	@OneToMany(mappedBy="scSalesplayAward")
+	@OneToMany(mappedBy="scSalesplayMapping" ,fetch = FetchType.LAZY)
+	@JsonIgnore
 	public List<ScSalesplayAward> getScSalesplayAwards() {
 		return this.scSalesplayAwards;
 	}
@@ -241,7 +262,9 @@ public class ScSalesplayMapping implements Serializable {
 
 
 	//bi-directional many-to-one association to ScSalesplayBenefit
-	@OneToMany(mappedBy="scSalesplayBenefit")
+	@OneToMany(mappedBy="scSalesplayMapping",fetch = FetchType.LAZY)
+	@LazyCollection(LazyCollectionOption.TRUE)
+	@JsonIgnore
 	public List<ScSalesplayBenefit> getScSalesplayBenefits() {
 		return this.scSalesplayBenefits;
 	}
@@ -266,7 +289,9 @@ public class ScSalesplayMapping implements Serializable {
 
 
 	//bi-directional many-to-one association to ScSalesplayClaim
-	@OneToMany(mappedBy="scSalesplayClaim")
+	@OneToMany(mappedBy="scSalesplayMapping",fetch = FetchType.LAZY)
+	@LazyCollection(LazyCollectionOption.TRUE)
+	@JsonIgnore
 	public List<ScSalesplayClaim> getScSalesplayClaims() {
 		return this.scSalesplayClaims;
 	}
@@ -275,23 +300,13 @@ public class ScSalesplayMapping implements Serializable {
 		this.scSalesplayClaims = scSalesplayClaims;
 	}
 
-	public ScSalesplayClaim addScSalesplayClaim(ScSalesplayClaim scSalesplayClaim) {
-		getScSalesplayClaims().add(scSalesplayClaim);
-		scSalesplayClaim.setScSalesplayMapping(this);
 
-		return scSalesplayClaim;
-	}
-
-	public ScSalesplayClaim removeScSalesplayClaim(ScSalesplayClaim scSalesplayClaim) {
-		getScSalesplayClaims().remove(scSalesplayClaim);
-		scSalesplayClaim.setScSalesplayMapping(null);
-
-		return scSalesplayClaim;
-	}
 
 
 	//bi-directional many-to-one association to ScSalesplayCommonQa
-	@OneToMany(mappedBy="scSalesplayCommonQa")
+	@OneToMany(mappedBy="scSalesplayMapping",fetch = FetchType.LAZY)
+	@LazyCollection(LazyCollectionOption.TRUE)
+	@JsonIgnore
 	public List<ScSalesplayCommonQa> getScSalesplayCommonQas() {
 		return this.scSalesplayCommonQas;
 	}
@@ -316,7 +331,9 @@ public class ScSalesplayMapping implements Serializable {
 
 
 	//bi-directional many-to-one association to ScSalesplayManual
-	@OneToMany(mappedBy="scSalesplayMapping")
+	@OneToMany(mappedBy="scSalesplayMapping",fetch = FetchType.LAZY)
+	@JsonIgnore
+	@LazyCollection(LazyCollectionOption.TRUE)
 	public List<ScSalesplayManual> getScSalesplayManuals() {
 		return this.scSalesplayManuals;
 	}
@@ -342,7 +359,9 @@ public class ScSalesplayMapping implements Serializable {
 
 
 	//bi-directional many-to-one association to ScSalesplaySpec
-	@OneToMany(mappedBy="scSalesplaySpec")
+	@OneToMany(mappedBy="scSalesplayMapping",fetch = FetchType.LAZY)
+	@LazyCollection(LazyCollectionOption.TRUE)
+	@JsonIgnore
 	public List<ScSalesplaySpec> getScSalesplaySpecs() {
 		return this.scSalesplaySpecs;
 	}
@@ -367,7 +386,9 @@ public class ScSalesplayMapping implements Serializable {
 
 
 	//bi-directional many-to-one association to ScSalesplayTestimonial
-	@OneToMany(mappedBy="scSalesplayTestimonial")
+	@OneToMany(mappedBy="scSalesplayMapping",fetch = FetchType.LAZY)
+	@LazyCollection(LazyCollectionOption.TRUE)
+	@JsonIgnore
 	public List<ScSalesplayTestimonial> getScSalesplayTestimonials() {
 		return this.scSalesplayTestimonials;
 	}
@@ -392,7 +413,9 @@ public class ScSalesplayMapping implements Serializable {
 
 
 	//bi-directional many-to-one association to ScSalesplayValue
-	@OneToMany(mappedBy="scSalesplayValue")
+	@OneToMany(mappedBy="scSalesplayMapping",fetch = FetchType.LAZY)
+	@LazyCollection(LazyCollectionOption.TRUE)
+	@JsonIgnore
 	public List<ScSalesplayValue> getScSalesplayValues() {
 		return this.scSalesplayValues;
 	}
@@ -413,6 +436,6 @@ public class ScSalesplayMapping implements Serializable {
 		scSalesplayValue.setScSalesplayMapping(null);
 
 		return scSalesplayValue;
-	}*/
+	}
 
 }

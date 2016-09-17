@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 /**
  * The persistent class for the SC_SALESPLAY_VALUES database table.
@@ -29,7 +31,9 @@ public class ScSalesplayValue implements Serializable {
 	private Timestamp lastupdatedDate;
 	private String title;
 	private String value;
+	@JsonIgnore
 	private ScSalesplayMapping scSalesplayMapping;
+	@JsonIgnore
 	private ScStatus scStatus;
 
 	public ScSalesplayValue() {

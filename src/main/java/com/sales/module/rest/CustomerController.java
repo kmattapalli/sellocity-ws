@@ -3,6 +3,8 @@ package com.sales.module.rest;
 import java.io.File;
 import java.io.IOException;
 
+import javax.transaction.Transactional;
+
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +30,7 @@ import com.sales.module.service.CustomerService;
 
 
 @Controller
+@Transactional
 public class CustomerController  extends AbstractRestController{
 	
 	 
@@ -60,7 +63,7 @@ public class CustomerController  extends AbstractRestController{
     }
     @RequestMapping(value = "/customer/{salesPlayName}/productData/{mappingId}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ScSalesplayMapping addPaintPoints1(@PathVariable final String salesPlayName,@PathVariable final Long mappingId,@RequestParam("paintPoint")  MultipartFile paintPoint,
+    public ScSalesplayMapping addPaintPoints1(@PathVariable final String salesPlayName,@PathVariable final Integer mappingId,@RequestParam("paintPoint")  MultipartFile paintPoint,
     		@RequestParam("productImage")  MultipartFile productImage,@RequestParam("productSpecs")  MultipartFile productSpecs,
     		@RequestParam("productManuals")  MultipartFile productManuals,@RequestParam("data") final String productInfo) throws IOException  {
     	
@@ -78,12 +81,13 @@ public class CustomerController  extends AbstractRestController{
     @ResponseBody
     public ScSalesplay searchByIdWithMapping(@PathVariable final Integer playId)  {
     
-    	return customerService.findBySalesPlayIdWithMapping(playId);
+    	ScSalesplay salesPlay= customerService.findBySalesPlayIdWithMapping(playId);
+    	return salesPlay;
     	
     }
     @RequestMapping(value = "/customer/{salesPlayName}/productDetails/{mappingId}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ScSalesplayMapping createProductData(@PathVariable final String salesPlayName,@PathVariable final Long mappingId,@RequestParam("productAwards")  MultipartFile productAwards,
+    public ScSalesplayMapping createProductData(@PathVariable final String salesPlayName,@PathVariable final Integer mappingId,@RequestParam("productAwards")  MultipartFile productAwards,
     		@RequestParam("productClaims")  MultipartFile productClaims,@RequestParam("productWhitePapers")  MultipartFile productWhitePapers,
     		@RequestParam("productTestimonials")  MultipartFile productTestimonials,@RequestParam("data") final String productValue) throws IOException  {
     	
@@ -97,5 +101,13 @@ public class CustomerController  extends AbstractRestController{
     			pathName+productWhitePapers.getOriginalFilename(),pathName+productTestimonials.getOriginalFilename(),mappingId,null);
     	
     }
+    @RequestMapping(value = "/customer/salesplaymapping/benefits/{spmapId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ScSalesplayMapping getMappingDetails(@PathVariable final Integer spmapId)  {
+    
+    	ScSalesplayMapping mappingObj= customerService.findBySalesPlayMappingWithBenefits(spmapId);
+    	
+    	return mappingObj;
+    } 
 }
 

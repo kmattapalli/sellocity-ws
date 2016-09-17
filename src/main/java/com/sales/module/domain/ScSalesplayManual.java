@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 /**
  * The persistent class for the SC_SALESPLAY_MANUALS database table.
@@ -29,7 +31,9 @@ public class ScSalesplayManual implements Serializable {
 	private Timestamp lastupdatedDate;
 	private String name;
 	private String url;
+	@JsonIgnore
 	private ScSalesplayMapping scSalesplayMapping;
+	@JsonIgnore
 	private ScStatus scStatus;
 
 	public ScSalesplayManual() {

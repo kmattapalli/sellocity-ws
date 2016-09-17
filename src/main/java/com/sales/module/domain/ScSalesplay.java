@@ -19,6 +19,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 
 /**
@@ -235,8 +237,7 @@ public class ScSalesplay implements Serializable {
 
 
 	//bi-directional many-to-one association to ScSalesplayMapping
-
-	@OneToMany(mappedBy="scSalesplay")
+	@OneToMany(mappedBy="scSalesplay",fetch=FetchType.LAZY)
 	public List<ScSalesplayMapping> getScSalesplayMappings() {
 		return this.scSalesplayMappings;
 	}

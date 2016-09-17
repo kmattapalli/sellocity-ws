@@ -13,10 +13,11 @@ public interface CustomerService {
 	public ScSalesplay addSalesPlayMapping(SalesPlayMappingInfo mappingInfo,Integer salesPlayId);
 	
 	public ScSalesplayMapping updateProductMapping(String  paingPointURl,String productURL,String specsURL,String manualURL,
-			String productInfo,Long mappingId ) ;
+			String productInfo,Integer mappingId ) ;
   
 	public ScSalesplay findBySalesPlayIdWithMapping(Integer salesId);
 	
 	public ScSalesplayMapping updateProductDetails(String  awardsURl,String claimsURL,String whitePapersURL,String testimonialURL,
-			Long mappingId,ProductValues productValues );
+			Integer mappingId,ProductValues productValues );
+	public ScSalesplayMapping findBySalesPlayMappingWithBenefits(Integer mappingId);
 }

@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 /**
  * The persistent class for the SC_COMPETETIVE_COMPARE database table.
@@ -30,6 +32,7 @@ public class ScCompetetiveCompare implements Serializable {
 	private String feature;
 	private Timestamp lastupdatedDate;
 	private String value;
+	@JsonIgnore
 	private ScSalesplayMapping scSalesplayMapping;
 	private ScStatus scStatus;
 

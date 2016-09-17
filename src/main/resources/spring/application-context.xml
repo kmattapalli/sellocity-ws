@@ -20,6 +20,7 @@
         destroy-method="close">
     <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" /> 
     <property name="url" value="jdbc:sqlserver://scityserver.database.windows.net:1433;databaseName=SCityDB;user=kmattapalli@scityserver.database.windows.net;password=Chcicken@65"/>
+ 
     <!-- <property name="driverClassName" value="com.mysql.jdbc.Driver" /> 
     <property name="url" value="jdbc:mysql://localhost:3306/sellocityDB" /> 
     <property name="username" value="root" />

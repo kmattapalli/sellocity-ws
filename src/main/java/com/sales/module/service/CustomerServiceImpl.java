@@ -189,7 +189,7 @@ public class CustomerServiceImpl implements CustomerService {
 		return salesPlayMapping;
 	}
 	public ScSalesplayMapping updateProductMapping(String  paingPointURl,String productURL,String specsURL,String manualURL,
-				String productInfo,Long mappingId ) {
+				String productInfo,Integer mappingId ) {
 		ScSalesplayMapping salesPlayMapping = salesPlayMappingDao.findByScSalesplayMappingId(mappingId);
 		salesPlayMapping.setPainPointImage(paingPointURl);
 		salesPlayMapping.setProductImage(productURL);
@@ -207,7 +207,7 @@ public class CustomerServiceImpl implements CustomerService {
 		return salesPlayMapping;
 	}
 	public ScSalesplayMapping updateProductDetails(String  awardsURl,String claimsURL,String whitePapersURL,String testimonialURL,
-			Long mappingId,ProductValues productValues ) {
+			Integer mappingId,ProductValues productValues ) {
 	ScSalesplayMapping salesPlayMapping = salesPlayMappingDao.findByScSalesplayMappingId(mappingId);
 
 	ScSalesplayAward awards = new ScSalesplayAward();
@@ -230,7 +230,13 @@ public class CustomerServiceImpl implements CustomerService {
 	
 	
 	public ScSalesplay findBySalesPlayIdWithMapping(Integer salesId){
-		return salesPlayDao.findByScSalesplayIdWithMapping(salesId);
+		ScSalesplay salesPlay = salesPlayDao.findByScSalesplayIdWithMapping(salesId);
+//		List<ScSalesplayMapping> mapping = salesPlayMappingDao.findByScSalesplayMappingList(salesPlay.getSpid());
+//		salesPlay.setScSalesplayMappings(mapping);
+		return salesPlay;
 	}
- 
+	public ScSalesplayMapping findBySalesPlayMappingWithBenefits(Integer mappingId){
+		return salesPlayMappingDao.findByScSalesplayMappingWithBenefits(mappingId);
+	}
+
 }

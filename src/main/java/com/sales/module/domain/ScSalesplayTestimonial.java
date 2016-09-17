@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 /**
  * The persistent class for the SC_SALESPLAY_TESTIMONIALS database table.
@@ -29,7 +31,9 @@ public class ScSalesplayTestimonial implements Serializable {
 	private String imageUrl;
 	private Timestamp lastupdatedDate;
 	private String name;
+	@JsonIgnore
 	private ScSalesplayMapping scSalesplayMapping;
+	@JsonIgnore
 	private ScStatus scStatus;
 
 	public ScSalesplayTestimonial() {
