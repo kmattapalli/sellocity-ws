@@ -1,13 +1,10 @@
-tracker.controller('PaintPointsController', ['$scope','$location','$window', '$state','SalesPlayService',
-     function($scope,$location, $window, $state,SalesPlayService) {
-
+tracker.controller('PaintPointsController', ['$scope','$location','$window', '$state','SalesPlayService','salesPlayId',
+     function($scope,$location, $window, $state,SalesPlayService,salesPlayId) {
 		$scope.errors = [];
-		
-		$scope.salesPlay =SalesPlayService.getSalesPlayData();
 	    $scope.addPaintPoints = function(customerInfo){
-	    	console.log("AAAAsdsad");
+
 			$scope.savingIndicator = true;
-			SalesPlayService.addPaintPoints(customerInfo,$scope.salesPlay.spId).then(
+			SalesPlayService.addPaintPoints(customerInfo,salesPlayId).then(
 					function(response) {
 						$scope.savingIndicator = false;
 						$scope.errors = response.errors;

@@ -56,6 +56,9 @@ $stateProvider
 
     .state('addsalesplay', {
         url: "/customer/salesplay/{playId}", 
+        resolve: {
+        	salesPlayId: getSalesId,
+        	},           
         views: {
             "uiview": {
                 templateUrl: 'resources/partials/create_play_1.html',
@@ -117,3 +120,6 @@ var salesPlayResolver = ['$stateParams','SalesPlayService', function ($statePara
 		};
 	}											
 	}];
+var getSalesId = ['$stateParams', function ($stateParams) {
+	return $stateParams.playId;
+}];

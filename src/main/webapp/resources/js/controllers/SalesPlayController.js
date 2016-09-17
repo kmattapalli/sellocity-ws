@@ -34,10 +34,9 @@ tracker.controller('SalesPlayController', ['$scope','$location','$window', '$sta
 						$scope.errors = response.errors;
 						if ($scope.errors.length == 0) {
 							$scope.salesPlay = response.data;
-							
 							SalesPlayService.setSalesPlayData($scope.salesPlay);
 							SalesPlayService.setSalesPlayName(customerInfo.salesPlayName);
-							$state.transitionTo("addsalesplay");
+							$state.transitionTo("addsalesplay",{playId:$scope.salesPlay.spid});
 						}
 					});
 			};

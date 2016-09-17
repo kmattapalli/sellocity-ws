@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-  
-
+    <!--JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- Compiled and minified JavaScript -->
@@ -26,9 +26,14 @@
     <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
 
 
-    <link rel="stylesheet" type="text/css" href="resources/css/styles.css" />
-    <link rel="stylesheet" type="text/css" href="resources/css/sellocity.css" />
- 
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <script>
+        $(document).ready(function () {
+            $('.collapsible').collapsible({
+                accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+            });
+        });
+    </script>
 
 </head>
 <body>
@@ -37,7 +42,7 @@
             <div class="col m9">
                 <ul class="nav nav-tabs nav-justified">
                     <li role="presentation" class=""><a href="create_play_1.html">1</a></li>
-                    <li role="presentation" class="active"><a href="#">2</a></li>
+                    <li role="presentation" class="active"><a class="underline" href="#">2</a></li>
                     <li role="presentation" class="disabled"><a href="#">3</a></li>
                     <li role="presentation" class="disabled"><a href="#">4</a></li>
                     <li role="presentation" class="disabled"><a href="#">5</a></li>
@@ -60,359 +65,415 @@
                         </ul>
                     </div>
 
-                    <div class="col m12 center top-border"><h6>Pixar performance play</h6></div>
+                    <div class="col m12 center top-border"><h6><span><img src="images/create_salesplay.png" height="20" width="20" /></span>&nbsp; <span class="client-company">Pixar</span> performance play</h6></div>
                 </div>
-            </div>
+            </div> 
         </div>
         <div id="tab2-wrapper">
-            <div class="row top-border bottom-border">
-                <div class="col m12 center">
-                    <h6><span class="sales-person">Kevin</span> you are just four steps away from designing your sales play</h6>
-                </div>
-            </div>
-            <div id="test2" class="row">
+            
+            <div id="test2" class="row top-border">
                 <div class="col m12">
                     <div class="container-fluid teal lighten-4">
 
-                        <h6 class="center">Map client pain points with your products</h6>
-
-                        <div class="panel-group" id="accordian">
-
-                            <div class="panel panel-default">
-                                <div class="center-align panel-heading">
-                                    <h6 class="panel-title">
-                                        <a class="center-align" data-toggle="collapse" data-parent="#accordian" href="#collapse1">Pain Point 1</a>
-                                    </h6>
-                                </div>
-
-                                <div id="collapse1" class="panel-collapse collapse in">
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <form class="container-fluid center-align white round">
-                                                <div class="row p1-name-row">
-                                                    <div class="input-field col m12">
-                                                        <h5><span id="pp1">Client's Pain Point #1</span> is addressed by:&nbsp; <input id="p1-text" placeholder="Product 1" type="text" class="" /></h5>
-                                                    </div>
-                                                </div>
-                                                <div class="">
-                                                    <div class="row margin-bottom">
-                                                        <div class="col m3 offset-m3 ">
-                                                            <h5>Pain Point Icon</h5>
-                                                        </div>
-                                                        <div class="col m4">
-                                                            <div id="pain-point-icon" class="file-field input-field">
-                                                                <div class="btn">
-                                                                    <span class=""><i class="size-30 icon ion-android-upload"></i></span>
-                                                                    <input type="file" />
-                                                                </div>
-                                                                <div class="file-path-wrapper">
-                                                                    <input class="file-path validate" type="text">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row margin-bottom" >
-                                                        <div class="col m3 offset-m3">
-                                                            <h5>Product Image</h5>
-                                                        </div>
-                                                        <div class="col m4">
-                                                            <div id="pain-point-icon" class="file-field input-field">
-                                                                <div class="btn">
-                                                                    <span class=""><i class="size-30 icon ion-android-upload"></i></span>
-                                                                    <input type="file">
-                                                                </div>
-                                                                <div class="file-path-wrapper">
-                                                                    <input class="file-path validate" type="text">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row margin-bottom">
-                                                        <div class="col m3 offset-m3">
-                                                            <h5>Product Spec</h5>
-                                                        </div>
-                                                        <div class="col m4">
-                                                            <div id="pain-point-icon" class="file-field input-field">
-                                                                <div class="btn">
-                                                                    <span class=""><i class="size-30 icon ion-android-upload"></i></span>
-                                                                    <input type="file">
-                                                                </div>
-                                                                <div class="file-path-wrapper">
-                                                                    <input class="file-path validate" type="text">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row margin-bottom">
-                                                        <div class="col m3 offset-m3">
-                                                            <h5>Product Manual</h5>
-                                                        </div>
-                                                        <div class="col m4 no-margin-left">
-                                                            <div id="pain-point-icon" class="file-field input-field">
-                                                                <div class="btn">
-                                                                    <span class=""><i class="size-30 icon ion-android-upload"></i></span>
-                                                                    <input type="file">
-                                                                </div>
-                                                                <div class="file-path-wrapper">
-                                                                    <input class="file-path validate" type="text">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-
-
-<!--
-                                                    <div class="row center-align margin-bottom">
-                                                        <div class="col m3 center-align">
-                                                            <div id="product-image" class="file-field input-field btn">
-                                                                <span class=""><i class="size-30 icon ion-android-upload"></i></span>
-                                                                <input type="file">
-                                                            </div>
-                                                            <br /><label for="product-image">Product Image</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row center-align margin-bottom">
-
-                                                        <div class="col m3 center-align">
-                                                            <div id="product-spec" class="file-field input-field btn">
-                                                                <span class=""><i class="size-30 icon ion-android-upload"></i></span>
-                                                                <input type="file">
-                                                            </div>
-                                                            <br /><label for="product-spec">Product Spec</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row center-align margin-bottom">
-                                                        <div class="col m3 center-align">
-                                                            <div id="product-manual" class="file-field input-field btn">
-                                                                <span class=""><i class="size-30 icon ion-android-upload"></i></span>
-                                                                <input type="file">
-                                                            </div>
-                                                            <br /><label for="product-manual">Product Manual</label>
-                                                        </div>
-                                                    </div>
-
--->
-                                                </div>
-                                                <div class="row center-align">
-                                                    <div class="col m5">
-                                                        <input type="checkbox" class="filled-in" id="p1-stock" />
-                                                        <label for="p1-stock">Is this product in stock?</label>
-                                                    </div>
-                                                    <div class="col m2 offset-m5">
-                                                        <a class="btn btn-flat floppy"><i class="fa fa-floppy-o"></i>&nbsp; Save</a>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                            
+                        <h6 class="center">Map customer pain points with your products &nbsp;&nbsp; <a href="#"><img src="images/Idea_example_icon.png" height="30" width="25" /></a></h6>
+                        <ul class="collapsible" data-collapsible="accordion">
+                            <li>
+                                <div class="collapsible-header text-align active">Pain Point 1</div>
+                                <div class="collapsible-body">
+                                    <form class="container-fluid center-align white">
+                                        <div class="row p1-name-row">
+                                            <div class="input-field col m12">
+                                                <span id="pp1">Client's Pain Point #1</span> is addressed by:&nbsp; <input id="p1-text" placeholder="Product 1" type="text" class="" />
+                                            </div>
                                         </div>
-
-                                        
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="center-align panel-heading">
-                                    <h6 class="panel-title">
-                                        <a class="center-align" data-toggle="collapse" data-parent="#accordian" href="#collapse2">Pain Point 2</a>
-                                    </h6>
-                                </div>
-
-                                <div id="collapse2" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <form class="container-fluid center-align white round">
-                                                <div class="row p1-name-row">
-                                                    <div class="input-field col m12">
-                                                        <span id="pp1">Client's Pain Point #2</span> is addressed by:&nbsp; <input id="p1-text" placeholder="Product 2" type="text" class="" />
+                                        <div class="">
+                                            <div class="row margin-bottom">
+                                                <div class="col m1 offset-m2">
+                                                    <img src="images/painpoint_icon.png" style="margin-top: 5px;" height="50" width="65" />
+                                                </div>
+                                                <div class="col m3">
+                                                    <h5>Pain Point Icon</h5>
+                                                </div>
+                                                <div class="col m4">
+                                                    <div id="pain-point-icon" class="file-field input-field">
+                                                        <div class="btn btn-flat">
+                                                            <span class=""><img src="images/upload_icon.png" height="45" width="45" /></span>
+                                                            <input type="file" />
+                                                        </div>
+                                                        <div class="file-path-wrapper">
+                                                            <input class="file-path validate" type="text">
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="row center-align margin-bottom">
-                                                    <div class="col m3 center-align">
-                                                        <div id="pain-point-icon" class="file-field input-field btn">
-                                                            <span class=""><i class="size-30 icon ion-android-upload"></i></span>
-                                                            <input type="file">
+                                            </div>
+                                            <div class="row margin-bottom">
+                                                <div class="col m1 offset-m2">
+                                                    <img src="images/product_image_icon.png" style="margin-top: 5px;" height="50" width="65" />
+                                                </div>
+                                                <div class="col m3">
+                                                    <h5>Product Image</h5>
+                                                </div>
+                                                <div class="col m4">
+                                                    <div id="pain-point-icon" class="file-field input-field">
+                                                        <div class="btn btn-flat">
+                                                            <span class=""><img src="images/upload_icon.png" height="45" width="45" /></span>
+                                                            <input type="file" />
                                                         </div>
-                                                        <br /><label for="pain-point-icon">Pain Point Icon</label>
-                                                    </div>
-
-                                                    <div class="col m3 center-align left-border">
-                                                        <div id="product-image" class="file-field input-field btn">
-                                                            <span class=""><i class="size-30 icon ion-android-upload"></i></span>
-                                                            <input type="file">
+                                                        <div class="file-path-wrapper">
+                                                            <input class="file-path validate" type="text">
                                                         </div>
-                                                        <br /><label for="product-image">Product Image</label>
-                                                    </div>
-
-                                                    <div class="col m3 center-align left-border">
-                                                        <div id="product-spec" class="file-field input-field btn">
-                                                            <span class=""><i class="size-30 icon ion-android-upload"></i></span>
-                                                            <input type="file">
-                                                        </div>
-                                                        <br /><label for="product-spec">Product Spec</label>
-                                                    </div>
-
-                                                    <div class="col m3 center-align left-border">
-                                                        <div id="product-manual" class="file-field input-field btn">
-                                                            <span class=""><i class="size-30 icon ion-android-upload"></i></span>
-                                                            <input type="file">
-                                                        </div>
-                                                        <br /><label for="product-manual">Product Manual</label>
                                                     </div>
                                                 </div>
-                                                <div class="row center-align">
-                                                    <div class="col m5">
-                                                        <input type="checkbox" class="filled-in" id="p1-stock" />
-                                                        <label for="p1-stock">Is this product in stock?</label>
-                                                    </div>
-                                                    <div class="col m2 offset-m5">
-                                                        <a class="btn btn-flat floppy"><i class="fa fa-floppy-o"></i>&nbsp; Save</a>
+                                            </div>
+                                            <div class="row margin-bottom">
+                                                <div class="col m1 offset-m2">
+                                                    <img src="images/tech_spec_icon.png" style="margin-top: 5px;" height="50" width="65" />
+                                                </div>
+                                                <div class="col m3">
+                                                    <h5>Product Spec</h5>
+                                                </div>
+                                                <div class="col m4">
+                                                    <div id="pain-point-icon" class="file-field input-field">
+                                                        <div class="btn btn-flat">
+                                                            <span class=""><img src="images/upload_icon.png" height="45" width="45" /></span>
+                                                            <input type="file" />
+                                                        </div>
+                                                        <div class="file-path-wrapper">
+                                                            <input class="file-path validate" type="text">
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </form>
-
+                                            </div>
+                                            <div class="row margin-bottom">
+                                                <div class="col m1 offset-m2">
+                                                    <img src="images/prod_manual_icon.png" style="margin-top: 5px;" height="50" width="65" />
+                                                </div>
+                                                <div class="col m3">
+                                                    <h5>Product Manual</h5>
+                                                </div>
+                                                <div class="col m4 no-margin-left">
+                                                    <div id="pain-point-icon" class="file-field input-field">
+                                                        <div class="btn btn-flat">
+                                                            <span class=""><img src="images/upload_icon.png" height="45" width="45" /></span>
+                                                            <input type="file" />
+                                                        </div>
+                                                        <div class="file-path-wrapper">
+                                                            <input class="file-path validate" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="center-align panel-heading">
-                                    <h6 class="panel-title">
-                                        <a class="center-align" data-toggle="collapse" data-parent="#accordian" href="#collapse3">Pain Point 3</a>
-                                    </h6>
-                                </div>
-
-                                <div id="collapse3" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <form class="container-fluid center-align white round">
-                                                <div class="row p1-name-row">
-                                                    <div class="input-field col m12">
-                                                        <span id="pp1">Client's Pain Point #3</span> is addressed by:&nbsp; <input id="p1-text" placeholder="Product 3" type="text" class="" />
-                                                    </div>
-                                                </div>
-                                                <div class="row center-align margin-bottom">
-                                                    <div class="col m3 center-align">
-                                                        <div id="pain-point-icon" class="file-field input-field btn">
-                                                            <span class=""><i class="size-30 icon ion-android-upload"></i></span>
-                                                            <input type="file">
-                                                        </div>
-                                                        <br /><label for="pain-point-icon">Pain Point Icon</label>
-                                                    </div>
-
-                                                    <div class="col m3 center-align left-border">
-                                                        <div id="product-image" class="file-field input-field btn">
-                                                            <span class=""><i class="size-30 icon ion-android-upload"></i></span>
-                                                            <input type="file">
-                                                        </div>
-                                                        <br /><label for="product-image">Product Image</label>
-                                                    </div>
-
-                                                    <div class="col m3 center-align left-border">
-                                                        <div id="product-spec" class="file-field input-field btn">
-                                                            <span class=""><i class="size-30 icon ion-android-upload"></i></span>
-                                                            <input type="file">
-                                                        </div>
-                                                        <br /><label for="product-spec">Product Spec</label>
-                                                    </div>
-
-                                                    <div class="col m3 center-align left-border">
-                                                        <div id="product-manual" class="file-field input-field btn">
-                                                            <span class=""><i class="size-30 icon ion-android-upload"></i></span>
-                                                            <input type="file">
-                                                        </div>
-                                                        <br /><label for="product-manual">Product Manual</label>
-                                                    </div>
-                                                </div>
-                                                <div class="row center-align">
-                                                    <div class="col m5">
-                                                        <input type="checkbox" class="filled-in" id="p1-stock" />
-                                                        <label for="p1-stock">Is this product in stock?</label>
-                                                    </div>
-                                                    <div class="col m2 offset-m5">
-                                                        <a class="btn btn-flat floppy"><i class="fa fa-floppy-o"></i>&nbsp; Save</a>
-                                                    </div>
-                                                </div>
-                                            </form>
-
+                                        <div class="row center-align margin-bottom">
+                                            <div class="col m5 offset-m1">
+                                                <input type="checkbox" class="filled-in" id="p1-stock" />
+                                                <label for="p1-stock">Is this product in stock?</label>
+                                            </div>
+                                            <div class="col m2 offset-m4">
+                                                <a class="btn btn-flat floppy"><i class="fa fa-floppy-o"></i>&nbsp; Save</a>
+                                            </div>
                                         </div>
-
-
-                                    </div>
+                                    </form>
                                 </div>
-                            </div>
-
-                            <div class="panel panel-default">
-                                <div class="center-align panel-heading">
-                                    <h6 class="panel-title">
-                                        <a class="center-align" data-toggle="collapse" data-parent="#accordian" href="#collapse4">Pain Point 4</a>
-                                    </h6>
-                                </div>
-
-                                <div id="collapse4" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <div class="row">
-                                            <form class="container-fluid center-align white round">
-                                                <div class="row p1-name-row">
-                                                    <div class="input-field col m12">
-                                                        <span id="pp1">Client's Pain Point #4</span> is addressed by:&nbsp; <input id="p1-text" placeholder="Product 4" type="text" class="" />
-                                                    </div>
-                                                </div>
-                                                <div class="row center-align margin-bottom">
-                                                    <div class="col m3 center-align">
-                                                        <div id="pain-point-icon" class="file-field input-field btn">
-                                                            <span class=""><i class="size-30 icon ion-android-upload"></i></span>
-                                                            <input type="file">
-                                                        </div>
-                                                        <br /><label for="pain-point-icon">Pain Point Icon</label>
-                                                    </div>
-
-                                                    <div class="col m3 center-align left-border">
-                                                        <div id="product-image" class="file-field input-field btn">
-                                                            <span class=""><i class="size-30 icon ion-android-upload"></i></span>
-                                                            <input type="file">
-                                                        </div>
-                                                        <br /><label for="product-image">Product Image</label>
-                                                    </div>
-
-                                                    <div class="col m3 center-align left-border">
-                                                        <div id="product-spec" class="file-field input-field btn">
-                                                            <span class=""><i class="size-30 icon ion-android-upload"></i></span>
-                                                            <input type="file">
-                                                        </div>
-                                                        <br /><label for="product-spec">Product Spec</label>
-                                                    </div>
-
-                                                    <div class="col m3 center-align left-border">
-                                                        <div id="product-manual" class="file-field input-field btn">
-                                                            <span class=""><i class="size-30 icon ion-android-upload"></i></span>
-                                                            <input type="file">
-                                                        </div>
-                                                        <br /><label for="product-manual">Product Manual</label>
-                                                    </div>
-                                                </div>
-                                                <div class="row center-align">
-                                                    <div class="col m5">
-                                                        <input type="checkbox" class="filled-in" id="p1-stock" />
-                                                        <label for="p1-stock">Is this product in stock?</label>
-                                                    </div>
-                                                    <div class="col m2 offset-m5">
-                                                        <a class="btn btn-flat floppy"><i class="fa fa-floppy-o"></i>&nbsp; Save</a>
-                                                    </div>
-                                                </div>
-                                            </form>
-
+                            </li>
+                            <li>
+                                <div class="collapsible-header text-align">Pain Point 2</div>
+                                <div class="collapsible-body">
+                                    <form class="container-fluid center-align white">
+                                        <div class="row p1-name-row">
+                                            <div class="input-field col m12">
+                                                <span id="pp1">Client's Pain Point #2</span> is addressed by:&nbsp; <input id="p1-text" placeholder="Product 2" type="text" class="" />
+                                            </div>
                                         </div>
-
-
-                                    </div>
+                                        <div class="">
+                                            <div class="row margin-bottom">
+                                                <div class="col m1 offset-m2">
+                                                    <img src="images/painpoint_icon.png" style="margin-top: 5px;" height="50" width="65" />
+                                                </div>
+                                                <div class="col m3">
+                                                    <h5>Pain Point Icon</h5>
+                                                </div>
+                                                <div class="col m4">
+                                                    <div id="pain-point-icon" class="file-field input-field">
+                                                        <div class="btn btn-flat">
+                                                            <span class=""><img src="images/upload_icon.png" height="45" width="45" /></span>
+                                                            <input type="file" />
+                                                        </div>
+                                                        <div class="file-path-wrapper">
+                                                            <input class="file-path validate" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row margin-bottom">
+                                                <div class="col m1 offset-m2">
+                                                    <img src="images/product_image_icon.png" style="margin-top: 5px;" height="50" width="65" />
+                                                </div>
+                                                <div class="col m3">
+                                                    <h5>Product Image</h5>
+                                                </div>
+                                                <div class="col m4">
+                                                    <div id="pain-point-icon" class="file-field input-field">
+                                                        <div class="btn btn-flat">
+                                                            <span class=""><img src="images/upload_icon.png" height="45" width="45" /></span>
+                                                            <input type="file" />
+                                                        </div>
+                                                        <div class="file-path-wrapper">
+                                                            <input class="file-path validate" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row margin-bottom">
+                                                <div class="col m1 offset-m2">
+                                                    <img src="images/tech_spec_icon.png" style="margin-top: 5px;" height="50" width="65" />
+                                                </div>
+                                                <div class="col m3">
+                                                    <h5>Product Spec</h5>
+                                                </div>
+                                                <div class="col m4">
+                                                    <div id="pain-point-icon" class="file-field input-field">
+                                                        <div class="btn btn-flat">
+                                                            <span class=""><img src="images/upload_icon.png" height="45" width="45" /></span>
+                                                            <input type="file" />
+                                                        </div>
+                                                        <div class="file-path-wrapper">
+                                                            <input class="file-path validate" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row margin-bottom">
+                                                <div class="col m1 offset-m2">
+                                                    <img src="images/prod_manual_icon.png" style="margin-top: 5px;" height="50" width="65" />
+                                                </div>
+                                                <div class="col m3">
+                                                    <h5>Product Manual</h5>
+                                                </div>
+                                                <div class="col m4 no-margin-left">
+                                                    <div id="pain-point-icon" class="file-field input-field">
+                                                        <div class="btn btn-flat">
+                                                            <span class=""><img src="images/upload_icon.png" height="45" width="45" /></span>
+                                                            <input type="file" />
+                                                        </div>
+                                                        <div class="file-path-wrapper">
+                                                            <input class="file-path validate" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row center-align margin-bottom">
+                                            <div class="col m5 offset-m1">
+                                                <input type="checkbox" class="filled-in" id="p1-stock" />
+                                                <label for="p1-stock">Is this product in stock?</label>
+                                            </div>
+                                            <div class="col m2 offset-m4">
+                                                <a class="btn btn-flat floppy"><i class="fa fa-floppy-o"></i>&nbsp; Save</a>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                            </div>
-                        </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header text-align">Pain Point 3</div>
+                                <div class="collapsible-body">
+                                    <form class="container-fluid center-align white">
+                                        <div class="row p1-name-row">
+                                            <div class="input-field col m12">
+                                                <span id="pp1">Client's Pain Point #3</span> is addressed by:&nbsp; <input id="p1-text" placeholder="Product 3" type="text" class="" />
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <div class="row margin-bottom">
+                                                <div class="col m1 offset-m2">
+                                                    <img src="images/painpoint_icon.png" style="margin-top: 5px;" height="50" width="65" />
+                                                </div>
+                                                <div class="col m3">
+                                                    <h5>Pain Point Icon</h5>
+                                                </div>
+                                                <div class="col m4">
+                                                    <div id="pain-point-icon" class="file-field input-field">
+                                                        <div class="btn btn-flat">
+                                                            <span class=""><img src="images/upload_icon.png" height="45" width="45" /></span>
+                                                            <input type="file" />
+                                                        </div>
+                                                        <div class="file-path-wrapper">
+                                                            <input class="file-path validate" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row margin-bottom">
+                                                <div class="col m1 offset-m2">
+                                                    <img src="images/product_image_icon.png" style="margin-top: 5px;" height="50" width="65" />
+                                                </div>
+                                                <div class="col m3">
+                                                    <h5>Product Image</h5>
+                                                </div>
+                                                <div class="col m4">
+                                                    <div id="pain-point-icon" class="file-field input-field">
+                                                        <div class="btn btn-flat">
+                                                            <span class=""><img src="images/upload_icon.png" height="45" width="45" /></span>
+                                                            <input type="file" />
+                                                        </div>
+                                                        <div class="file-path-wrapper">
+                                                            <input class="file-path validate" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row margin-bottom">
+                                                <div class="col m1 offset-m2">
+                                                    <img src="images/tech_spec_icon.png" style="margin-top: 5px;" height="50" width="65" />
+                                                </div>
+                                                <div class="col m3">
+                                                    <h5>Product Spec</h5>
+                                                </div>
+                                                <div class="col m4">
+                                                    <div id="pain-point-icon" class="file-field input-field">
+                                                        <div class="btn btn-flat">
+                                                            <span class=""><img src="images/upload_icon.png" height="45" width="45" /></span>
+                                                            <input type="file" />
+                                                        </div>
+                                                        <div class="file-path-wrapper">
+                                                            <input class="file-path validate" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row margin-bottom">
+                                                <div class="col m1 offset-m2">
+                                                    <img src="images/prod_manual_icon.png" style="margin-top: 5px;" height="50" width="65" />
+                                                </div>
+                                                <div class="col m3">
+                                                    <h5>Product Manual</h5>
+                                                </div>
+                                                <div class="col m4 no-margin-left">
+                                                    <div id="pain-point-icon" class="file-field input-field">
+                                                        <div class="btn btn-flat">
+                                                            <span class=""><img src="images/upload_icon.png" height="45" width="45" /></span>
+                                                            <input type="file" />
+                                                        </div>
+                                                        <div class="file-path-wrapper">
+                                                            <input class="file-path validate" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row center-align margin-bottom">
+                                            <div class="col m5 offset-m1">
+                                                <input type="checkbox" class="filled-in" id="p1-stock" />
+                                                <label for="p1-stock">Is this product in stock?</label>
+                                            </div>
+                                            <div class="col m2 offset-m4">
+                                                <a class="btn btn-flat floppy"><i class="fa fa-floppy-o"></i>&nbsp; Save</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header text-align">Pain Point 4</div>
+                                <div class="collapsible-body">
+                                    <form class="container-fluid center-align white">
+                                        <div class="row p1-name-row">
+                                            <div class="input-field col m12">
+                                                <span id="pp1">Client's Pain Point #4</span> is addressed by:&nbsp; <input id="p1-text" placeholder="Product 4" type="text" class="" />
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <div class="row margin-bottom">
+                                                <div class="col m1 offset-m2">
+                                                    <img src="images/painpoint_icon.png" style="margin-top: 5px;" height="50" width="65" />
+                                                </div>
+                                                <div class="col m3">
+                                                    <h5>Pain Point Icon</h5>
+                                                </div>
+                                                <div class="col m4">
+                                                    <div id="pain-point-icon" class="file-field input-field">
+                                                        <div class="btn btn-flat">
+                                                            <span class=""><img src="images/upload_icon.png" height="45" width="45" /></span>
+                                                            <input type="file" />
+                                                        </div>
+                                                        <div class="file-path-wrapper">
+                                                            <input class="file-path validate" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row margin-bottom">
+                                                <div class="col m1 offset-m2">
+                                                    <img src="images/product_image_icon.png" style="margin-top: 5px;" height="50" width="65" />
+                                                </div>
+                                                <div class="col m3">
+                                                    <h5>Product Image</h5>
+                                                </div>
+                                                <div class="col m4">
+                                                    <div id="pain-point-icon" class="file-field input-field">
+                                                        <div class="btn btn-flat">
+                                                            <span class=""><img src="images/upload_icon.png" height="45" width="45" /></span>
+                                                            <input type="file" />
+                                                        </div>
+                                                        <div class="file-path-wrapper">
+                                                            <input class="file-path validate" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row margin-bottom">
+                                                <div class="col m1 offset-m2">
+                                                    <img src="images/tech_spec_icon.png" style="margin-top: 5px;" height="50" width="65" />
+                                                </div>
+                                                <div class="col m3">
+                                                    <h5>Product Spec</h5>
+                                                </div>
+                                                <div class="col m4">
+                                                    <div id="pain-point-icon" class="file-field input-field">
+                                                        <div class="btn btn-flat">
+                                                            <span class=""><img src="images/upload_icon.png" height="45" width="45" /></span>
+                                                            <input type="file" />
+                                                        </div>
+                                                        <div class="file-path-wrapper">
+                                                            <input class="file-path validate" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row margin-bottom">
+                                                <div class="col m1 offset-m2">
+                                                    <img src="images/prod_manual_icon.png" style="margin-top: 5px;" height="50" width="65" />
+                                                </div>
+                                                <div class="col m3">
+                                                    <h5>Product Manual</h5>
+                                                </div>
+                                                <div class="col m4 no-margin-left">
+                                                    <div id="pain-point-icon" class="file-field input-field">
+                                                        <div class="btn btn-flat">
+                                                            <span class=""><img src="images/upload_icon.png" height="45" width="45" /></span>
+                                                            <input type="file" />
+                                                        </div>
+                                                        <div class="file-path-wrapper">
+                                                            <input class="file-path validate" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row center-align">
+                                            <div class="col m5 offset-m1">
+                                                <input type="checkbox" class="filled-in" id="p1-stock" />
+                                                <label for="p1-stock">Is this product in stock?</label>
+                                            </div>
+                                            <div class="col m2 offset-m4">
+                                                <a class="btn btn-flat floppy"><i class="fa fa-floppy-o"></i>&nbsp; Save</a>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </li>
+                        </ul>
                         <div class="row margin-bottom">
                             <div class="input-field col s12 center-align">
                                 <a class="waves-effect waves-light btn btn-flat" href="create_play_1.html"><i class="size-18 icon ion-android-arrow-back"></i>&nbsp; Back </a>

@@ -15,7 +15,7 @@ import com.sales.module.domain.ScSalesplay;
 public class SalesPlayHibernateDao extends SelloCityHibernateDao<ScSalesplay> implements SalesPlayDAO<ScSalesplay>{
  
 	public ScSalesplay findByScSalesplayId(Integer spIdValue){
-		List<ScSalesplay> playList= findByCriteria(Restrictions.eq("spId",spIdValue));
+		List<ScSalesplay> playList= findByCriteria(Restrictions.eq("spid",spIdValue));
 		
 		if(playList != null && playList.size() >=0){
 			return playList.get(0);
