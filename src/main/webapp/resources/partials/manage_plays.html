@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!--JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+
+    <!--Material Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+    <!--ionicons-->
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <script>
+        $(document).ready(function () {
+            $('select').material_select();
+        });
+    </script>
+
+</head>
+<body id="index-body">
+    <div class="wrapper">
+        <nav class="navbar navbar-fixed-top container-fluid">
+            <div class="row">
+                <ul class="left">
+                    <li>
+                        <h5 class="margin-top">Manage your salesplays</h5>
+
+                    </li>
+                </ul>
+                <ul class="right">
+                    <li class="right-border margin-top"><h6 class="font-125">Salesplays: &nbsp;&nbsp;</h6></li>
+                    <li class="right-border margin-top back-green">
+                        <h6 class="font-125">&nbsp;&nbsp;<span id="live-plays-count">3</span>&nbsp; Read &nbsp;&nbsp;<br /></h6>
+                    </li>
+                    <li class="right-border margin-top back-blue">
+                        <h6 class="font-125">&nbsp;&nbsp;<span id="active-plays-count">1</span>&nbsp; Sent &nbsp;&nbsp;</h6>
+                    </li>
+                    <li class="right-border margin-top back-yellow">
+                        <h6 class="font-125">&nbsp;&nbsp;<span id="active-plays-count">1</span>&nbsp;WIP &nbsp;&nbsp;</h6>
+                    </li>
+                    <li class="margin-top-8"><a href="#"><i class="fa fa-sign-out size-28"></i></a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container salesplays">
+            <div class="row">
+                <div class="col m10">
+                    <div class="table">
+                        <div class="row margin-top">
+                            <div class="col m1"><div class="circle circle-green">1</div></div>
+                            <div class="col m6"><h6>BMW Data Center Play</h6></div>
+                            <div class="col l1"><a class="waves-effect waves-teal clone">Clone</a></div>
+                            <div class="col l1"><a class="waves-effect waves-teal share" href="#" data-toggle="modal" data-target="#share-modal">Share</a></div>
+                            <div class="col l1"><a class="waves-effect waves-teal disable">Disable</a></div>
+                            <div class="col l1"><a class="waves-effect waves-teal delete">Delete</a></div>
+                        </div>
+                        <div class="row margin-top">
+                            <div class="col m1"><div class="circle circle-blue">2</div></div>
+                            <div class="col m6"><h6>BMW Data Center Play</h6></div>
+                            <div class="col l1"><a class="waves-effect waves-teal clone">Clone</a></div>
+                            <div class="col l1"><a class="waves-effect waves-teal share" href="#" data-toggle="modal" data-target="#share-modal">Share</a></div>
+                            <div class="col l1"><a class="waves-effect waves-teal disable">Disable</a></div>
+                            <div class="col l1"><a class="waves-effect waves-teal delete">Delete</a></div>
+                        </div>
+                        <div class="row margin-top">
+                            <div class="col m1"><div class="circle circle-yellow">3</div></div>
+                            <div class="col m6"><h6>BMW Data Center Play</h6></div>
+                            <div class="col l1"><a class="waves-effect waves-teal clone">Clone</a></div>
+                            <div class="col l1"><a class="waves-effect waves-teal share" href="#" data-toggle="modal" data-target="#share-modal">Share</a></div>
+                            <div class="col l1"><a class="waves-effect waves-teal disable">Disable</a></div>
+                            <div class="col l1"><a class="waves-effect waves-teal delete">Delete</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col m2 sidebar">
+                    <ul class="nav nav-list sidenav affix">
+                        <li class="font-125 text-align"><span id="greeting">Good Morning </span> <span id="name">Saket</span></li>
+                        <li class="divider margin-bottom margin-top"></li>
+                        <li><a href="index.html"><i class="fa fa-arrow-left" aria-hidden="true"></i> &nbsp; Back</a></li>
+                        <li><a href="create_play.html"><img src="resources/images/create_salesplay.png" height="40" width="40" /> &nbsp; Craft New Sales Play</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--   <footer class="page-footer white">
+        <div class="container">
+            <div class="row">
+                <div class="col m3">
+                    <a class="btn btn-floating btn-large waves-effect waves-light" href="index.html"><i class="fa fa-chevron-left"></i></a>
+                </div>
+                <div class="col m9 center-align">
+                    <a class="btn btn-floating btn-large waves-effect waves-light" href="create_play.html"><i class="icon ion-social-usd"></i></a><br />Create New Sales Play
+                </div>
+            </div>
+        </div>
+    </footer>
+--> 
+    <!-- Modal Structure -->
+    <div class="modal fade" id="share-modal" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="row bottom-border">
+                        <div class="col m12">
+                            <h5 class="modal-title" id="Product1ModalLabel">Who would you like to share this salesplay with?</h5>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="well">
+                            <div class="input-field">
+                                <select multiple>
+                                    <option value="" disabled selected>Choose one or more people from the list</option>
+                                    <option value="1">Person 1</option>
+                                    <option value="2">Person 2</option>
+                                    <option value="3">Person 3</option>
+                                    <option value="4">Person 4</option>
+                                    <option value="5">Person 5</option>
+                                    <option value="6">Person 6</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="well">
+                            <div class="input-field margin-top">
+                                <input id="emails" type="text" class="">
+                                <label for="emails">Or enter an email</label>
+                            </div>
+                        </div>
+                            
+                        
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <a class="modal-action modal-close waves-effect waves-green btn" href=""><i class="material-icons right">send</i>Send</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
