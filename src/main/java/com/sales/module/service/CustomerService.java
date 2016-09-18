@@ -1,7 +1,6 @@
 package com.sales.module.service;
 
 import com.sales.module.domain.CustomerInfo;
-import com.sales.module.domain.ProductValues;
 import com.sales.module.domain.SalesPlayMappingInfo;
 import com.sales.module.domain.ScSalesplay;
 import com.sales.module.domain.ScSalesplayMapping;
@@ -18,6 +17,7 @@ public interface CustomerService {
 	public ScSalesplay findBySalesPlayIdWithMapping(Integer salesId);
 	
 	public ScSalesplayMapping updateProductDetails(String  awardsURl,String claimsURL,String whitePapersURL,String testimonialURL,
-			Integer mappingId,ProductValues productValues );
+			Integer mappingId,String[] productValues );
+	public ScSalesplayMapping updateProductBenefits(Integer mappingId,String[] benefitsValues );
 	public ScSalesplayMapping findBySalesPlayMappingWithBenefits(Integer mappingId);
 }

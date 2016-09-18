@@ -1,8 +1,7 @@
-tracker.controller('ProductDetailsController', ['$scope','$location','$window', '$state','SalesPlayService','loadedData',
+tracker.controller('ProductBenefitsController', ['$scope','$location','$window', '$state','SalesPlayService','loadedData',
      function($scope,$location, $window, $state,SalesPlayService,loadedData) {
 	  	//$scope.customerInfo={};
 	  //	$scope.customerProduct={};
-	
 	$scope.returnMessage="";
 		$scope.customerInfoWrapper={};
 	  	$scope.paintPoints;
@@ -15,21 +14,21 @@ tracker.controller('ProductDetailsController', ['$scope','$location','$window', 
 		$scope.customerInfo = new Array($scope.paintPoints.length);
 	
 		
-	    $scope.createProductValues = function(customerData,mappingId){
+	    $scope.createBenefitDetails = function(customerData,mappingId){
 //	    	var test = $scope.customerProduct[0].productInfo;
 //	    	var aa =  $scope.customerInfo[0];
 	    	$scope.savingIndicator = true;
-			SalesPlayService.addProductDetails(customerData,mappingId).then(
+			SalesPlayService.addBenefitDetails(customerData,mappingId).then(
 					function(response) {
 						$scope.savingIndicator = false;
 						$scope.errors = response.errors;
 						if ($scope.errors.length == 0) {
-							$scope.returnMessage="Succssfully added Product Details";
+							$scope.returnMessage="Succssfully added Benefits";
 						}
 					});
 			};
 			$scope.previousAction = function(){
-				$state.transitionTo("productinfo",{playId:$scope.salesPlay.spid});
+				$state.transitionTo("productdatadetails",{playId:$scope.salesPlay.spid});
 			};
 			$scope.nextAction = function(){
 				$state.transitionTo("productbenefits",{playId:$scope.salesPlay.spid});

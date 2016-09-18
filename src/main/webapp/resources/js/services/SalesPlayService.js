@@ -67,11 +67,30 @@ tracker.factory("SalesPlayService", function($http,$filter,$rootScope){
 			        }).then(this.successHandler, this.errorHandler);	
 			    },
 		    addProductDetails	 : function(infoData,mappingId){
+		    	var productData =[];
+		    	var count =0;
 		    	$rootScope.salesPlay="temp";
+		    		if(infoData.productValues1){
+		    			productData[count]=infoData.productValues1;
+		    			count++;
+		    		}
+		    		if(infoData.productValues2){
+		    			productData[count]=infoData.productValues2;
+		    			count++;
+		    		}
+		    		if(infoData.productValues3){
+		    			productData[count]=infoData.productValues3;
+		    			count++;
+		    		}
+		    		if(infoData.productValues4){
+		    			productData[count]=infoData.productValues4;
+		    			count++;
+		    		}
 			    	var fd = new FormData();
 			    	console.log(JSON.stringify(infoData));
 			    	//var test=[infoData.painPointImage,infoData.productImage];
-			    	fd.append("data", JSON.stringify(infoData));
+			    	
+			    	fd.append("data", productData);
 		
 			    	fd.append('productAwards', infoData.productAwards);
 			    	fd.append('productClaims', infoData.productClaims);
@@ -85,6 +104,40 @@ tracker.factory("SalesPlayService", function($http,$filter,$rootScope){
 			            headers: {'Content-Type': undefined}
 			        }).then(this.successHandler, this.errorHandler);	
 			    },
+			    addBenefitDetails	 : function(infoData,mappingId){
+			    	var productData =[];
+			    	var count =0;
+
+			    		if(infoData.productValues1){
+			    			productData[count]=infoData.productValues1;
+			    			count++;
+			    		}
+			    		if(infoData.productValues2){
+			    			productData[count]=infoData.productValues2;
+			    			count++;
+			    		}
+			    		if(infoData.productValues3){
+			    			productData[count]=infoData.productValues3;
+			    			count++;
+			    		}
+			    		if(infoData.productValues4){
+			    			productData[count]=infoData.productValues4;
+			    			count++;
+			    		}
+				    	var fd = new FormData();
+				    	console.log(JSON.stringify(infoData));
+				    	//var test=[infoData.painPointImage,infoData.productImage];
+				    	
+				    	fd.append("benefitsData", productData);
+	
+
+				    	var method = 'POST';
+				    	var url = baseUrl + '/selloCityWeb/customer/productBenefits/'+mappingId;
+				    	return $http.post(url, fd, {
+				            transformRequest: angular.identity,
+				            headers: {'Content-Type': undefined}
+				        }).then(this.successHandler, this.errorHandler);	
+				    },
 	};
 	return angular.extend(service, BaseService);
 });

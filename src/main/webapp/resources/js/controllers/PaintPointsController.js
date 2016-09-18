@@ -11,13 +11,14 @@ tracker.controller('PaintPointsController', ['$scope','$location','$window', '$s
 						if ($scope.errors.length == 0) {
 							$scope.salesPlay = response.data;
 							SalesPlayService.setSalesPlayData($scope.salesPlay);
-							$state.transitionTo("productinfo");
+							$state.transitionTo("productinfo",{playId:salesPlayId});
 						}
 					});
 			};
 			$scope.previousAction = function(){
 				$state.transitionTo("home");
 			};
-		
+
+
 		}
    	]);

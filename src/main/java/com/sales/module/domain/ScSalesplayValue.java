@@ -82,7 +82,7 @@ public class ScSalesplayValue implements Serializable {
 	}
 
 
-	@Column(name="[VALUE]")
+	@Column(name="VALUE")
 	public String getValue() {
 		return this.value;
 	}

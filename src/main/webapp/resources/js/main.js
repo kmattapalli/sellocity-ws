@@ -13,7 +13,7 @@ if(document.getElementById('baseUrl')){
 }
 
 //var tracker = angular.module('tracker', ['ngRoute','ui.router','ui.bootstrap','ngCookies', 'ui.select2', ,'blueimp.fileupload','ui.timepicker','smart-table']);
-var tracker = angular.module('tracker', ['ngRoute','ui.router','ui.bootstrap','ngCookies', 'ui.select2', ,'blueimp.fileupload','ui.timepicker']);
+var tracker = angular.module('tracker', ['ngRoute','ui.router','ui.bootstrap','ngCookies', 'ui.select2', 'ui.timepicker']);
 tracker.config(['$stateProvider','$routeProvider', '$provide','$httpProvider', function($stateProvider, $routeProvider, $provide, $httpProvider) {
 	
 	  //register the interceptor as a service
@@ -67,8 +67,10 @@ $stateProvider
         }
     }) 
     .state('productinfo', {
-    url: "/productinfo", 
-    
+    url: "/productinfo/{playId}", 
+    resolve: {
+     	loadedData:salesPlayResolver,
+     	}, 
     views: {
         "uiview": {
             templateUrl: 'resources/partials/create_play_2.html',
@@ -83,18 +85,32 @@ $stateProvider
          	},            	 
     	 views: {
         "uiview": {
-            templateUrl: 'resources/partials/create_play_product_info.html',
+            templateUrl: 'resources/partials/create_play_3.html',
             controller: 'ProductDetailsController'
         }
     }
     }) 
-    .state('productdetails', {
-        url: "/productdetails", 
-        
+    .state('productdatadetails', {
+        url: "/productdatadetails/{playId}", 
+        resolve: {
+         	loadedData:salesPlayResolver,
+         	},
         views: {
             "uiview": {
-                templateUrl: 'resources/partials/create_play_product_info.html',
-                controller: 'ProductInfoController'
+                templateUrl: 'resources/partials/create_play_3.html',
+                controller: 'ProductDetailsController'
+            }
+        }
+    }) 
+     .state('productbenefits', {
+        url: "/productbenefits/{playId}", 
+        resolve: {
+         	loadedData:salesPlayResolver,
+         	},
+        views: {
+            "uiview": {
+                templateUrl: 'resources/partials/create_play_4.html',
+                controller: 'ProductBenefitsController'
             }
         }
     }) 
@@ -110,6 +126,17 @@ $stateProvider
  
    }]);
 var salesPlayResolver = ['$stateParams','SalesPlayService', function ($stateParams, SalesPlayService) {
+	
+	if($stateParams.playId) {
+		return SalesPlayService.getSalesPlayWithMapping($stateParams.playId); 
+	} else {
+		return {
+			data:{},
+			errors:[]
+		};
+	}											
+	}];
+var salesPlayMappingResolver = ['$stateParams','SalesPlayService', function ($stateParams, SalesPlayService) {
 	
 	if($stateParams.playId) {
 		return SalesPlayService.getSalesPlayWithMapping($stateParams.playId); 

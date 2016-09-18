@@ -89,7 +89,7 @@ public class CustomerController  extends AbstractRestController{
     @ResponseBody
     public ScSalesplayMapping createProductData(@PathVariable final String salesPlayName,@PathVariable final Integer mappingId,@RequestParam("productAwards")  MultipartFile productAwards,
     		@RequestParam("productClaims")  MultipartFile productClaims,@RequestParam("productWhitePapers")  MultipartFile productWhitePapers,
-    		@RequestParam("productTestimonials")  MultipartFile productTestimonials,@RequestParam("data") final String productValue) throws IOException  {
+    		@RequestParam("productTestimonials")  MultipartFile productTestimonials,@RequestParam("data") final String[] productData) throws IOException  {
     	
     	String pathName="/Users/qzdbxb/projects/uploads/Dell/"+salesPlayName+"/";
     	//File uploads = new File(pathName+paintPoint.getOriginalFilename());
@@ -98,8 +98,15 @@ public class CustomerController  extends AbstractRestController{
     	FileUtils.writeByteArrayToFile(new File(pathName+productWhitePapers.getOriginalFilename()), productWhitePapers.getBytes());
     	FileUtils.writeByteArrayToFile(new File(pathName+productTestimonials.getOriginalFilename()), productTestimonials.getBytes());
     	return customerService.updateProductDetails(pathName+productAwards.getOriginalFilename(),pathName+productClaims.getOriginalFilename(),
-    			pathName+productWhitePapers.getOriginalFilename(),pathName+productTestimonials.getOriginalFilename(),mappingId,null);
+    			pathName+productWhitePapers.getOriginalFilename(),pathName+productTestimonials.getOriginalFilename(),mappingId,productData);
     	
+    }
+    @RequestMapping(value = "/customer/productBenefits/{mappingId}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ScSalesplayMapping createProductBenefits(@PathVariable final Integer mappingId,@RequestParam("benefitsData") final String[] benefitsData) throws IOException  {
+
+    	return customerService.updateProductBenefits(mappingId,benefitsData);
+
     }
     @RequestMapping(value = "/customer/salesplaymapping/benefits/{spmapId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody

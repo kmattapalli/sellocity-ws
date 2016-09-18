@@ -11,6 +11,7 @@
     <script src="resources/js/controllers/PaintPointsController.js"></script>
     <script src="resources/js/controllers/ProductInfoController.js"></script>
     <script src="resources/js/controllers/ProductDetailsController.js"></script>
+    <script src="resources/js/controllers/ProductBenefitsController.js"></script>
     
     
     <script src="resources/js/controllers/SalesPlayUploadController.js"></script>  

@@ -2,6 +2,11 @@
 
  	<script src="resources/vendor/jquery/jquery.js"></script>
  	
+ 	<script src="resources/vendor/jquery/bootstrap.js"></script>
+ 	
+ 		<script src="resources/vendor/jquery/materialize.js"></script>
+ 	
+ 	
  	<script src="resources/vendor/jquery/jquery.timepicker.js"></script>
  	
  	<script src="resources/vendor/angular/angular.js"></script>
@@ -24,29 +29,7 @@
     
    <script src="resources/vendor/jquery/jquery.iframe-transport.js"></script>
 
-    <script src="resources/vendor/jquery/jquery.fileupload.js"></script>
-
-    <script src="resources/vendor/jquery/jquery.fileupload-process.js"></script>
-
-    <script src="resources/vendor/jquery/blueimp/blueimp-gallery.min.js"></script>
-
-    <script src="resources/vendor/jquery/blueimp/canvas-to-blob.min.js"></script>
-
-    <script src="resources/vendor/jquery/blueimp/jquery.blueimp-gallery.min.js"></script>
-
-    <script src="resources/vendor/jquery/blueimp/load-image.min.js"></script>
-
-    <script src="resources/vendor/jquery/addons/jquery.fileupload-angular.js"></script>
-
-    <script src="resources/vendor/jquery/addons/jquery.fileupload-audio.js"></script>
-
-    <script src="resources/vendor/jquery/addons/jquery.fileupload-image.js"></script>
-
-    <script src="resources/vendor/jquery/addons/jquery.fileupload-ui.js"></script>
-
-    <script src="resources/vendor/jquery/addons/jquery.fileupload-validate.js"></script>
-
-    <script src="resources/vendor/jquery/addons/jquery.fileupload-video.js"></script>    
+  
     
     <!-- script src="resources/vendor/angular/angular-smart-table/smart-table.js"></script>
     

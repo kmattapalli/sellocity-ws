@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.sales.module.dao.ClientDAO;
 import com.sales.module.dao.CustomerDAO;
 import com.sales.module.dao.SalesPlayAwardsDAO;
+import com.sales.module.dao.SalesPlayBenefitDAO;
 import com.sales.module.dao.SalesPlayClaimsDAO;
 import com.sales.module.dao.SalesPlayDAO;
 import com.sales.module.dao.SalesPlayManualsDAO;
@@ -19,12 +20,12 @@ import com.sales.module.dao.SalesPlayValuesDAO;
 import com.sales.module.dao.StatusDAO;
 import com.sales.module.dao.UserDAO;
 import com.sales.module.domain.CustomerInfo;
-import com.sales.module.domain.ProductValues;
 import com.sales.module.domain.SalesPlayMappingInfo;
 import com.sales.module.domain.ScClient;
 import com.sales.module.domain.ScCustomer;
 import com.sales.module.domain.ScSalesplay;
 import com.sales.module.domain.ScSalesplayAward;
+import com.sales.module.domain.ScSalesplayBenefit;
 import com.sales.module.domain.ScSalesplayClaim;
 import com.sales.module.domain.ScSalesplayManual;
 import com.sales.module.domain.ScSalesplayMapping;
@@ -68,6 +69,9 @@ public class CustomerServiceImpl implements CustomerService {
 	
 	@Autowired
 	SalesPlayValuesDAO<ScSalesplayValue> salesPlayValuesDAO;
+	
+	@Autowired
+	SalesPlayBenefitDAO<ScSalesplayBenefit> salesPlayBenefitDAO;
 	
 	@Autowired
 	SalesPlayTestimonialsDAO<ScSalesplayTestimonial> salesPlayTestimonialsDAO;
@@ -206,10 +210,28 @@ public class CustomerServiceImpl implements CustomerService {
 
 		return salesPlayMapping;
 	}
+	public ScSalesplayMapping updateProductBenefits(Integer mappingId,String[] benefitsValues ){
+		ScSalesplayMapping salesPlayMapping = salesPlayMappingDao.findByScSalesplayMappingId(mappingId);
+		for(String benefit:benefitsValues){
+			ScSalesplayBenefit value = new ScSalesplayBenefit();
+			value.setScSalesplayMapping(salesPlayMapping);
+			value.setBenefit(benefit);
+			salesPlayBenefitDAO.persist(value);
+		}
+		return salesPlayMapping;
+	}
 	public ScSalesplayMapping updateProductDetails(String  awardsURl,String claimsURL,String whitePapersURL,String testimonialURL,
-			Integer mappingId,ProductValues productValues ) {
+			Integer mappingId,String[] productValues ) {
 	ScSalesplayMapping salesPlayMapping = salesPlayMappingDao.findByScSalesplayMappingId(mappingId);
 
+	for(String prodValue:productValues){
+		ScSalesplayValue value = new ScSalesplayValue();
+		value.setScSalesplayMapping(salesPlayMapping);
+		value.setValue(prodValue);
+		salesPlayValuesDAO.persist(value);
+		
+	}
+	
 	ScSalesplayAward awards = new ScSalesplayAward();
 	awards.setImageUrl(awardsURl);
 	awards.setScSalesplayMapping(salesPlayMapping);
