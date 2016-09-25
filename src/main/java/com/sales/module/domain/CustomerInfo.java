@@ -21,7 +21,7 @@ public class CustomerInfo implements Serializable{
 	 */
 	private static final long serialVersionUID = 5990354759751443525L;
 
-
+	private Integer spid;
 	private String clientName;
 	private String customerClientContact;
 	private String customerClientEmail;
@@ -82,6 +82,20 @@ public class CustomerInfo implements Serializable{
 	 */
 	public void setSalesPlayName(String salesPlayName) {
 		this.salesPlayName = salesPlayName;
+	}
+
+	/**
+	 * @return the spid
+	 */
+	public Integer getSpid() {
+		return spid;
+	}
+
+	/**
+	 * @param spid the spid to set
+	 */
+	public void setSpid(Integer spid) {
+		this.spid = spid;
 	}
 
 

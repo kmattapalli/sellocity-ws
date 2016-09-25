@@ -47,6 +47,7 @@ public class ScSalesplayMapping implements Serializable {
 	private ScProduct scProduct;
 	@JsonIgnore
 	private ScSalesplay scSalesplay;
+	@JsonIgnore
 	private ScStatus scStatus;
 	
 	

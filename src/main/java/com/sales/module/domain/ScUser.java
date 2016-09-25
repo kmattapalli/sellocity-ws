@@ -49,6 +49,7 @@ public class ScUser implements Serializable {
 	private Integer token;
 	private String uname;
 	private String zip;
+	
 	private List<ScClient> scClients1;
 	private List<ScClient> scClients2;
 	private List<ScProduct> scProducts1;

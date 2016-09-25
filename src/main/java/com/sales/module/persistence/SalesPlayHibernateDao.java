@@ -16,20 +16,22 @@ public class SalesPlayHibernateDao extends SelloCityHibernateDao<ScSalesplay> im
  
 	public ScSalesplay findByScSalesplayId(Integer spIdValue){
 		List<ScSalesplay> playList= findByCriteria(Restrictions.eq("spid",spIdValue));
-		
-		if(playList != null && playList.size() >=0){
-			return playList.get(0);
+		ScSalesplay salesPlayObj=new ScSalesplay();
+		if(playList != null && playList.size() >0){
+			salesPlayObj= playList.get(0);
 		}
-		return null;
+		Hibernate.initialize(salesPlayObj.getScClient());
+		return salesPlayObj;
 	}
 	public ScSalesplay findByScSalesplayIdWithMapping(Integer spIdValue){
-		 ScSalesplay salesPlayObj=new ScSalesplay();;
+		 ScSalesplay salesPlayObj=new ScSalesplay();
 		 Criteria crit = getSession().createCriteria(getPersistentClass());
 		 crit.add(Restrictions.eq("spid",spIdValue));
 		 List<ScSalesplay> playList= (List<ScSalesplay>)crit.list();
-		 if(playList != null && playList.size() >=0){
+		 if(playList != null && playList.size() >0){
 			salesPlayObj = playList.get(0);
 		 }
+		 Hibernate.initialize(salesPlayObj.getScClient());
 		 Hibernate.initialize(salesPlayObj.getScSalesplayMappings());
 		return salesPlayObj;
 	}

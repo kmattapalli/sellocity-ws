@@ -9,7 +9,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Optional theme
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <!--JQuery-->
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
    
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
@@ -74,13 +78,13 @@
                         <h6 class="center">Map customer pain points with your products &nbsp;&nbsp; <a href="#"><img src="resources/images/Idea_example_icon.png" height="30" width="25" /></a></h6>
                         <ul class="collapsible" data-collapsible="accordion">
                             <li data-ng-repeat="mappingObj in paintPoints">
-                                <div class="collapsible-header text-align active">Pain Point {{$index+1}}</div>
+                                <div class="collapsible-header text-align active">{{mappingObj.painPoint}}</div>
                                 <div class="collapsible-body">
                                     <form class="container-fluid center-align white">
                                         <div class="row p1-name-row">
                                             <div class="input-field col m12">
-                                                <span id="pp1">Client's Pain Point #1</span> is addressed by:&nbsp; 
-                                                <input id="p1-text" placeholder="Product 1" data-ng-model="customerInfo.productInfo" type="text" name="productInfo" class="" />
+                                                <span id="pp1">Client's {{mappingObj.painPoint}}</span> is addressed by:&nbsp; 
+                                                <input id="p1-text" placeholder="Product 1" data-ng-model="customerInfo[$index].productInfo" type="text" name="productInfo" class="" />
                                             </div>
                                         </div>
                                         <div class="">
@@ -95,10 +99,10 @@
                                                     <div id="pain-point-icon" class="file-field input-field">
                                                         <div class="btn btn-flat">
                                                             <span class=""><img src="resources/images/upload_icon.png" height="45" width="45" /></span>
-                                                            <input type="file" data-file-model="customerInfo.painPointImage"/>
+                                                            <input type="file" data-file-model="customerInfo[$index].painPointImage" accept="image/*"/>
                                                         </div>
                                                         <div class="file-path-wrapper">
-                                                            <input class="file-path validate" type="text">
+                                                            <input class="file-path validate" type="text" data-ng-model="customerInfo[$index].painPointImage1" >
                                                         </div>
                                                     </div>
                                                 </div>
@@ -114,10 +118,10 @@
                                                     <div id="pain-point-icon" class="file-field input-field">
                                                         <div class="btn btn-flat">
                                                             <span class=""><img src="resources/images/upload_icon.png" height="45" width="45" /></span>
-                                                            <input type="file" data-file-model="customerInfo.productImage"/>
+                                                            <input type="file" data-file-model="customerInfo[$index].productImage" accept="image/*"/>
                                                         </div>
                                                         <div class="file-path-wrapper">
-                                                            <input class="file-path validate" type="text">
+                                                            <input class="file-path validate" type="text" data-ng-model="customerInfo[$index].productImage1">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -133,13 +137,14 @@
                                                     <div id="pain-point-icon" class="file-field input-field">
                                                         <div class="btn btn-flat">
                                                             <span class=""><img src="resources/images/upload_icon.png" height="45" width="45" /></span>
-                                                            <input type="file" data-file-model="customerInfo.productSpecs"/>
+                                                            <input type="file" data-file-model="customerInfo[$index].productSpecs"/>
                                                         </div>
                                                         <div class="file-path-wrapper">
-                                                            <input class="file-path validate" type="text">
+                                                            <input class="file-path validate" type="text" data-ng-model="customerInfo[$index].productSpecs1" >
                                                         </div>
                                                     </div>
                                                 </div>
+                                                    <input type="hidden"  name="specId" data-ng-model="customerInfo.specId"  >
                                             </div>
                                             <div class="row margin-bottom">
                                                 <div class="col m1 offset-m2">
@@ -152,13 +157,14 @@
                                                     <div id="pain-point-icon" class="file-field input-field">
                                                         <div class="btn btn-flat">
                                                             <span class=""><img src="resources/images/upload_icon.png" height="45" width="45" /></span>
-                                                            <input type="file" data-file-model="customerInfo.productManuals"/>
+                                                            <input type="file" data-file-model="customerInfo[$index].productManuals"/>
                                                         </div>
                                                         <div class="file-path-wrapper">
-                                                            <input class="file-path validate" type="text">
+                                                            <input class="file-path validate" type="text" data-nd-model="customerInfo[$index].productManuals1">
                                                         </div>
                                                     </div>
                                                 </div>
+                                                 <input type="hidden"  name="manualId" data-ng-model="customerInfo.manualId"  >
                                             </div>
                                         </div>
                                         <div class="row center-align margin-bottom">
@@ -167,8 +173,8 @@
                                                 <label for="p1-stock">Is this product in stock?</label>
                                             </div>
                                             <div class="col m2 offset-m4">
-                                                <a class="btn btn-flat floppy" data-ng-click="addProductInfo(customerInfo,mappingObj.spmapId)"><i class="fa fa-floppy-o"></i>&nbsp; Save</a>
-                                            	<div>{{returnMessage}}</div>
+                                                <a class="btn btn-flat floppy" data-ng-click="addProductInfo(customerInfo[$index],mappingObj.spmapId)"><i class="fa fa-floppy-o"></i>&nbsp; Save</a>
+                                            	<div class="uploadMessage">{{returnMessage}}</div>
                                             </div>
                                         </div>
                                     </form>

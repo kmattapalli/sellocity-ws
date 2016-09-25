@@ -8,9 +8,9 @@ tracker.controller('ProductInfoController', ['$scope','$location','$window', '$s
 
 		$scope.paintPoints = $scope.salesPlay.scSalesplayMappings;
 	
-		$scope.customerInfo = new Array($scope.paintPoints.length);
+		$scope.customerInfo = $scope.salesPlay.scSalesplayMappings;
 	
-	    $scope.addProductInfo11 = function(customerData,mappingId){
+	    $scope.addProductInfo = function(customerData,mappingId){
 
 	    	$scope.savingIndicator = true;
 			SalesPlayService.addProductData(customerData,mappingId).then(

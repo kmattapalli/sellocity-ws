@@ -19,8 +19,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 
 /**
@@ -47,6 +45,7 @@ public class ScSalesplay implements Serializable {
 	private ScClient scClient;
 	@JsonIgnore
 	private ScCustomer scCustomer;
+	@JsonIgnore
 	private ScStatus scStatus;
 	@JsonIgnore 
 	private ScUser scUser1;

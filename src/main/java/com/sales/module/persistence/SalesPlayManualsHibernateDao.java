@@ -21,9 +21,9 @@ public class SalesPlayManualsHibernateDao extends SelloCityHibernateDao<ScSalesp
 
 
 	@Override
-	public ScSalesplayManual findByScSalesplayManuals(Long spIdValue) {
+	public ScSalesplayManual findByScSalesplayManuals(Integer spIdValue) {
 		List<ScSalesplayManual> playList= findByCriteria(Restrictions.eq("manualId",spIdValue));
-		if(playList != null && playList.size() >=0){
+		if(playList != null && playList.size() >0){
 			return playList.get(0);
 		}
 		return null;

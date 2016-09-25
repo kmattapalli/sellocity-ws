@@ -50,7 +50,9 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <input id="play-name" type="text" class=""  name="salesPlayName" data-ng-model="customerInfo.salesPlayName" required>
+                        <input type="hidden" name="spid" data-ng-model="customerInfo.spid">
                       <span data-ng-show="myForm.salesPlayName.$touched && myForm.salesPlayName.$invalid" style="color:red;">The name of Sales Play required.</span>
+                      
                         <label for="play-name">Name of this Sales Play</label>
                     </div>
                 </div>
@@ -80,10 +82,10 @@
                <div id="cust-image" class="file-field input-field">
                    <div class="btn btn-flat">
                        <span class=""><img src="resources/images/upload_icon.png" height="40" width="40" /></span>
-                       <input type="file" data-file-model="clientLogo" />
+                       <input type="file" data-file-model="clientLogo"  accept="image/*"/>
                    </div>
                    <div class="file-path-wrapper">
-                       <input class="file-path validate" type="text">
+                       <input class="file-path validate" type="text" data-ng-model="customerInfo.clientLogo" >
                        <label for="cust-image">Customer Image</label>
                    </div>
                </div>

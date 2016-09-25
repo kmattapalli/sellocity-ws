@@ -87,6 +87,7 @@
                                 <div class="input-field col s12">
                                     <input placeholder="GPU Performance issues" id="pp1" type="text" name="painPoint1" class="" data-ng-model="customerInfo.painPoint1" >
                                     <label for="pp1">Pain point 1</label>
+                                    
                                 </div>
                             </div>
                             <div class="row">
@@ -107,11 +108,18 @@
                                     <label for="pp4">Pain point 4</label>
                                 </div>
                             </div>
+                            
+                            <input type="hidden"  name="spmapId1" data-ng-model="customerInfo.spmapId1"  >
+                            <input type="hidden"  name="spid" data-ng-model="customerInfo.spid"  >
+                            <input type="hidden"  name="spmapId2" data-ng-model="customerInfo.spmapId2"  >
+                            <input type="hidden"  name="spmapId3" data-ng-model="customerInfo.spmapId3"  >
+                            <input type="hidden"  name="spmapId4" data-ng-model="customerInfo.spmapId4"  >
                         </form>
                     </div>
                     <div class="row margin-bottom">
                         <div class="input-field col s12 center-align">
-                            <a class="waves-effect waves-light btn" title="Save & Continue" href="#" data-ng-click="addPaintPoints(customerInfo)">Next &nbsp;<i class="icon ion-android-arrow-forward"></i></a>
+                       <a class="waves-effect waves-light btn" title="Save & Continue" data-ng-click="previousAction()">Back &nbsp;<i class="icon ion-android-arrow-forward"></i></a>
+                            <a class="waves-effect waves-light btn" title="Save & Continue"  data-ng-click="addPaintPoints(customerInfo)">Next &nbsp;<i class="icon ion-android-arrow-forward"></i></a>
                         </div>
                     </div>
                 </div>

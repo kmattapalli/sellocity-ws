@@ -32,20 +32,35 @@ public class ScStatus implements Serializable {
 	private Integer lastupdatedBy;
 	private Timestamp lastupdatedDate;
 	private String sdescription;
+	@JsonIgnore
 	private List<ScClient> scClients;
+	@JsonIgnore
 	private List<ScCompetetiveCompare> scCompetetiveCompares;
+	@JsonIgnore
 	private List<ScCustomer> scCustomers;
+	@JsonIgnore
 	private List<ScSalesplay> scSalesplays;
+	@JsonIgnore
 	private List<ScSalesplayAward> scSalesplayAwards;
+	@JsonIgnore
 	private List<ScSalesplayBenefit> scSalesplayBenefits;
+	@JsonIgnore
 	private List<ScSalesplayClaim> scSalesplayClaims;
+	@JsonIgnore
 	private List<ScSalesplayCommonQa> scSalesplayCommonQas;
+	@JsonIgnore
 	private List<ScSalesplayManual> scSalesplayManuals;
+	@JsonIgnore
 	private List<ScSalesplayMapping> scSalesplayMappings;
+	@JsonIgnore
 	private List<ScSalesplayResponse> scSalesplayResponses;
+	@JsonIgnore
 	private List<ScSalesplaySpec> scSalesplaySpecs;
+	@JsonIgnore
 	private List<ScSalesplayTestimonial> scSalesplayTestimonials;
+	@JsonIgnore
 	private List<ScSalesplayValue> scSalesplayValues;
+	@JsonIgnore
 	private List<ScUser> scUsers;
 
 	public ScStatus() {

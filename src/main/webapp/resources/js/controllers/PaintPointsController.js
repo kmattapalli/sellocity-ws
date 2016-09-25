@@ -1,10 +1,14 @@
-tracker.controller('PaintPointsController', ['$scope','$location','$window', '$state','SalesPlayService','salesPlayId',
-     function($scope,$location, $window, $state,SalesPlayService,salesPlayId) {
+tracker.controller('PaintPointsController', ['$scope','$location','$window', '$state','SalesPlayService','salesPlayId','loadedData',
+     function($scope,$location, $window, $state,SalesPlayService,salesPlayId,loadedData) {
 		$scope.errors = [];
-	    $scope.addPaintPoints = function(customerInfo){
-
+		$scope.customerInfo = loadedData.data;
+	    $scope.addPaintPoints = function(paintPoints){
+	    	if( !paintPoints.painPoint1 && !paintPoints.painPoint2 && !paintPoints.painPoint3 && !paintPoints.painPoint4){
+	    		alert("Enter atleast one pain point");
+	    		return
+	    	} 
 			$scope.savingIndicator = true;
-			SalesPlayService.addPaintPoints(customerInfo,salesPlayId).then(
+			SalesPlayService.addPaintPoints(paintPoints,salesPlayId).then(
 					function(response) {
 						$scope.savingIndicator = false;
 						$scope.errors = response.errors;
@@ -16,7 +20,7 @@ tracker.controller('PaintPointsController', ['$scope','$location','$window', '$s
 					});
 			};
 			$scope.previousAction = function(){
-				$state.transitionTo("home");
+				$state.transitionTo("editsalesplay",{playId:salesPlayId});
 			};
 
 

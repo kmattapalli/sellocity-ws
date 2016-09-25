@@ -22,9 +22,13 @@ public class SalesPlayMappingInfo implements Serializable{
 	private static final long serialVersionUID = 5990354759751443525L;
 
 	private String painPoint1;
+	private Integer spmapId1;
 	private String painPoint2;
+	private Integer spmapId2;
 	private String painPoint3;
+	private Integer spmapId3;
 	private String painPoint4;
+	private Integer spmapId4;
 	/**
 	 * @return the painPoint1
 	 */
@@ -72,6 +76,54 @@ public class SalesPlayMappingInfo implements Serializable{
 	 */
 	public void setPainPoint4(String painPoint4) {
 		this.painPoint4 = painPoint4;
+	}
+	/**
+	 * @return the spmapId1
+	 */
+	public Integer getSpmapId1() {
+		return spmapId1;
+	}
+	/**
+	 * @param spmapId1 the spmapId1 to set
+	 */
+	public void setSpmapId1(Integer spmapId1) {
+		this.spmapId1 = spmapId1;
+	}
+	/**
+	 * @return the spmapId2
+	 */
+	public Integer getSpmapId2() {
+		return spmapId2;
+	}
+	/**
+	 * @param spmapId2 the spmapId2 to set
+	 */
+	public void setSpmapId2(Integer spmapId2) {
+		this.spmapId2 = spmapId2;
+	}
+	/**
+	 * @return the spmapId3
+	 */
+	public Integer getSpmapId3() {
+		return spmapId3;
+	}
+	/**
+	 * @param spmapId3 the spmapId3 to set
+	 */
+	public void setSpmapId3(Integer spmapId3) {
+		this.spmapId3 = spmapId3;
+	}
+	/**
+	 * @return the spmapId4
+	 */
+	public Integer getSpmapId4() {
+		return spmapId4;
+	}
+	/**
+	 * @param spmapId4 the spmapId4 to set
+	 */
+	public void setSpmapId4(Integer spmapId4) {
+		this.spmapId4 = spmapId4;
 	}
 	
 

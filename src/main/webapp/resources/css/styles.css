@@ -204,3 +204,7 @@ svg{
     background: #f8e805;
     color: black;
 }
+.uploadMessage{
+	font-style: italic;
+    color: #008000;
+}

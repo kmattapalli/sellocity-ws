@@ -53,11 +53,23 @@ $stateProvider
             }
         }
     })
-
+ .state('editsalesplay', {
+        url: "/salesplay/{playId}", 
+        resolve: {
+        	loadedData:salesPlayDataResolver,
+        	},           
+        views: {
+            "uiview": {
+                templateUrl: 'resources/partials/create_play.html',
+                controller: 'SalesPlayEditController'
+            }
+        }
+    }) 
     .state('addsalesplay', {
         url: "/customer/salesplay/{playId}", 
         resolve: {
         	salesPlayId: getSalesId,
+        	loadedData:salesPlayPaintPointResolver,
         	},           
         views: {
             "uiview": {
@@ -69,7 +81,7 @@ $stateProvider
     .state('productinfo', {
     url: "/productinfo/{playId}", 
     resolve: {
-     	loadedData:salesPlayResolver,
+     	loadedData:salesPlayProductDataResolver,
      	}, 
     views: {
         "uiview": {
@@ -137,7 +149,6 @@ var salesPlayResolver = ['$stateParams','SalesPlayService', function ($statePara
 	}											
 	}];
 var salesPlayMappingResolver = ['$stateParams','SalesPlayService', function ($stateParams, SalesPlayService) {
-	
 	if($stateParams.playId) {
 		return SalesPlayService.getSalesPlayWithMapping($stateParams.playId); 
 	} else {
@@ -147,6 +158,37 @@ var salesPlayMappingResolver = ['$stateParams','SalesPlayService', function ($st
 		};
 	}											
 	}];
+var salesPlayPaintPointResolver = ['$stateParams','SalesPlayService', function ($stateParams, SalesPlayService) {
+	if($stateParams.playId) {
+		return SalesPlayService.getPainpoints($stateParams.playId); 
+	} else {
+		return {
+			data:{},
+			errors:[]
+		};
+	}											
+	}];
+var salesPlayDataResolver = ['$stateParams','SalesPlayService', function ($stateParams, SalesPlayService) {
+	if($stateParams.playId) {
+		return SalesPlayService.getSalesPlayData($stateParams.playId); 
+	} else {
+		return {
+			data:{},
+			errors:[]
+		};
+	}											
+	}];
+var salesPlayProductDataResolver = ['$stateParams','SalesPlayService', function ($stateParams, SalesPlayService) {
+	if($stateParams.playId) {
+		return SalesPlayService.getSalesPlayWithProducts($stateParams.playId); 
+	} else {
+		return {
+			data:{},
+			errors:[]
+		};
+	}											
+	}];
+
 var getSalesId = ['$stateParams', function ($stateParams) {
 	return $stateParams.playId;
 }];

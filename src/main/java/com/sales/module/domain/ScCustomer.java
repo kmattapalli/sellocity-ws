@@ -41,11 +41,17 @@ public class ScCustomer implements Serializable {
 	private String logo;
 	private String name;
 	private String zip;
+	@JsonIgnore
 	private List<ScClient> scClients;
+	@JsonIgnore
 	private ScIndustry scIndustry;
+	@JsonIgnore
 	private ScStatus scStatus;
+	@JsonIgnore
 	private List<ScProduct> scProducts;
+	@JsonIgnore
 	private List<ScSalesplay> scSalesplays;
+	@JsonIgnore
 	private List<ScUser> scUsers;
 
 	public ScCustomer() {

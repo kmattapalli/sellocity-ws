@@ -20,13 +20,25 @@ tracker.factory("SalesPlayService", function($http,$filter,$rootScope){
 		setSalesPlayName : function(name){
 			$rootScope.salesPlay=name;
 		},
+		getPainpoints : function(salesPlayId){
+			var url = baseUrl + '/selloCityWeb/customer/getsalesplay/paintpoints/'+salesPlayId;
+		    return  $http.get(url).then(this.successHandler, this.errorHandler);
+		},
 		getSalesPlayWithMapping : function(salesPlayId){
 			var url = baseUrl + '/selloCityWeb/customer/getsalesplay/'+salesPlayId;
 		    return  $http.get(url).then(this.successHandler, this.errorHandler);
-    	},		
+    	},	
+		getSalesPlayWithProducts : function(salesPlayId){
+			var url = baseUrl + '/selloCityWeb/customer/getsalesplay/products/'+salesPlayId;
+		    return  $http.get(url).then(this.successHandler, this.errorHandler);
+    	},	
+		getSalesPlayData : function(salesPlayId){
+			var url = baseUrl + '/selloCityWeb/customer/salesplay/getsalesplay/'+salesPlayId;
+		    return  $http.get(url).then(this.successHandler, this.errorHandler);
+    	},
 	    addSalesPlay : function(salesPlayData,clientLogo){
 	    	var fd = new FormData();
-	        fd.append('file', clientLogo);
+	    	 fd.append('file', clientLogo);
 	        fd.append("data", JSON.stringify(salesPlayData));
 	    	var method = 'POST';
 	    	var url = baseUrl + '/selloCityWeb/customer/salesplay';
@@ -52,7 +64,11 @@ tracker.factory("SalesPlayService", function($http,$filter,$rootScope){
 			    	
 			    	var fd = new FormData();
 			    	//var test=[infoData.painPointImage,infoData.productImage];
-			    	fd.append("data", JSON.stringify(infoData.productInfo));
+			    	//fd.append("data", JSON.stringify(infoData));
+			    	fd.append("data", infoData.productInfo);
+			    	fd.append("specId", infoData.specId);
+			    	fd.append("manualId", infoData.manualId);
+			   
 		
 			    	fd.append('paintPoint', infoData.painPointImage);
 			    	fd.append('productImage', infoData.productImage);
@@ -60,7 +76,7 @@ tracker.factory("SalesPlayService", function($http,$filter,$rootScope){
 			    	fd.append('productManuals', infoData.productManuals);
 
 			    	var method = 'POST';
-			    	var url = baseUrl + '/selloCityWeb/customer/'+$rootScope.salesPlay+'/productData/'+mappingId;
+			    	var url = baseUrl + '/selloCityWeb/customer/productData/'+mappingId;
 			    	return $http.post(url, fd, {
 			            transformRequest: angular.identity,
 			            headers: {'Content-Type': undefined}

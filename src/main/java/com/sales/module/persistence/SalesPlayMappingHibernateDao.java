@@ -23,7 +23,7 @@ public class SalesPlayMappingHibernateDao extends SelloCityHibernateDao<ScSalesp
 	@Override
 	public ScSalesplayMapping findByScSalesplayMappingId(Integer spIdValue) {
 		List<ScSalesplayMapping> playList= findByCriteria(Restrictions.eq("spmapId",spIdValue));
-		if(playList != null && playList.size() >=0){
+		if(playList != null && playList.size() >0){
 			return playList.get(0);
 		}
 		return null;
