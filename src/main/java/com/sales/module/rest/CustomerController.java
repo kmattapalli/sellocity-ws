@@ -35,9 +35,13 @@ import com.sales.module.service.CustomerService;
 @Transactional
 public class CustomerController  extends AbstractRestController{
 	
-	final static String fileNamePath= System.getProperty("catalina.base");
+	//final static String fileNamePath= System.getProperty("catalina.base");
 	//final static String fileNamePath= "/site/wwwroot/webapps/";
+	final static String fileNamePath= "D:\\home\\site\\wwwroot\\webapps\\images\\";
+	
 	static String salesPerson="TestUser";
+	final static String pathName=fileNamePath;
+	
     @Autowired
     private CustomerService customerService;
     private static final Logger logger = LoggerFactory.getLogger(CustomerController.class);
@@ -51,7 +55,7 @@ public class CustomerController  extends AbstractRestController{
     	String fileUrl=null;
     	CustomerInfo infoData  = mapper.readValue(info,CustomerInfo.class);
     	if(productImage != null){
-    		File uploads = new File(fileNamePath+salesPerson+productImage.getOriginalFilename());
+    		File uploads = new File(pathName+productImage.getOriginalFilename());
     		FileUtils.writeByteArrayToFile(uploads, productImage.getBytes());
     		fileUrl=fileNamePath+productImage.getOriginalFilename();
     	}
@@ -83,7 +87,7 @@ public class CustomerController  extends AbstractRestController{
     		infoData.setSpecId(Integer.parseInt(specId));
     	}
     
-    	String pathName=fileNamePath+salesPerson+"/";
+    
     	
     	String paintPointInfo		= 		createFileData(pathName,paintPoint);
     	String productImageInfo	=	createFileData(pathName,productImage);
@@ -131,7 +135,7 @@ public class CustomerController  extends AbstractRestController{
     		@RequestParam("productClaims")  MultipartFile productClaims,@RequestParam("productWhitePapers")  MultipartFile productWhitePapers,
     		@RequestParam("productTestimonials")  MultipartFile productTestimonials,@RequestParam("data") final String[] productData) throws IOException  {
     	
-    	String pathName=fileNamePath+salesPerson+"/";
+    
 
     	String productClaimsInfo		= 		createFileData(pathName,productClaims);
     	String productWhitePapersInfo	=	createFileData(pathName,productWhitePapers);
