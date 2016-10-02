@@ -2,7 +2,7 @@ tracker.controller('ProductBenefitsController', ['$scope','$location','$window',
      function($scope,$location, $window, $state,SalesPlayService,loadedData) {
 	  	//$scope.customerInfo={};
 	  //	$scope.customerProduct={};
-	$scope.returnMessage="";
+	$scope.returnMessage=[];
 		$scope.customerInfoWrapper={};
 	  	$scope.paintPoints;
 		$scope.errors = [];
@@ -14,7 +14,7 @@ tracker.controller('ProductBenefitsController', ['$scope','$location','$window',
 		$scope.customerInfo = new Array($scope.paintPoints.length);
 	
 		
-	    $scope.createBenefitDetails = function(customerData,mappingId){
+	    $scope.createBenefitDetails = function(customerData,mappingId,index){
 //	    	var test = $scope.customerProduct[0].productInfo;
 //	    	var aa =  $scope.customerInfo[0];
 	    	$scope.savingIndicator = true;
@@ -23,7 +23,7 @@ tracker.controller('ProductBenefitsController', ['$scope','$location','$window',
 						$scope.savingIndicator = false;
 						$scope.errors = response.errors;
 						if ($scope.errors.length == 0) {
-							$scope.returnMessage="Succssfully added Benefits";
+							$scope.returnMessage[index]="Succssfully added Benefits";
 						}
 					});
 			};

@@ -38,6 +38,7 @@ public class CustomerController  extends AbstractRestController{
 	//final static String fileNamePath= System.getProperty("catalina.base");
 	//final static String fileNamePath= "/site/wwwroot/webapps/";
 	final static String fileNamePath= "D:\\home\\site\\wwwroot\\webapps\\images\\";
+	final static String urlPath="http://mala-ws.azurewebsites.net/images/";
 	
 	static String salesPerson="TestUser";
 	final static String pathName=fileNamePath;
@@ -59,7 +60,7 @@ public class CustomerController  extends AbstractRestController{
     		FileUtils.writeByteArrayToFile(uploads, productImage.getBytes());
     		fileUrl=fileNamePath+productImage.getOriginalFilename();
     	}
-    	ScSalesplayView salesPlay = customerService.createSalesPlay(infoData, "Dell",fileUrl);
+    	ScSalesplayView salesPlay = customerService.createSalesPlay(infoData, "Dell",urlPath+productImage.getOriginalFilename());
 		return salesPlay;
     }
     @RequestMapping(value = "/customer/salesplay/{playId}", method = RequestMethod.PUT,consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -71,11 +72,12 @@ public class CustomerController  extends AbstractRestController{
     }
     @RequestMapping(value = "/customer/productData/{mappingId}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ScSalesplayMapping addPaintPoints1(@PathVariable final Integer mappingId,
+    public ScSalesplayMapping addProductInfo(@PathVariable final Integer mappingId,
     		@RequestParam(value="paintPoint",required=false)  MultipartFile paintPoint,
     		@RequestParam(value="productImage",required=false)  MultipartFile productImage,@RequestParam(value="productSpecs",required=false)  MultipartFile productSpecs,
     		@RequestParam(value="productManuals",required=false)  MultipartFile productManuals,@RequestParam("data") final String data,
-    		@RequestParam(value="specId",required=false) final String specId,@RequestParam(value="manualId",required=false) final String manualId) throws IOException  {
+    		@RequestParam(value="specId",required=false) final String specId,@RequestParam(value="manualId",required=false) final String manualId,
+    		@RequestParam(value="productInStock",required=false) final String productInStock ) throws IOException  {
     	
  
     	ScProductView infoData  = new ScProductView();
@@ -86,15 +88,13 @@ public class CustomerController  extends AbstractRestController{
       	if(specId != null&& !specId.equals("null")){
     		infoData.setSpecId(Integer.parseInt(specId));
     	}
-    
-    
     	
     	String paintPointInfo		= 		createFileData(pathName,paintPoint);
     	String productImageInfo	=	createFileData(pathName,productImage);
     	String productSpecsInfo	=	createFileData(pathName,productSpecs);
     	String productManualsInfo		=		createFileData(pathName,productManuals);
 
-    	return customerService.updateProductMapping(paintPointInfo,productImageInfo,productSpecsInfo,productManualsInfo,infoData,mappingId);
+    	return customerService.updateProductMapping(paintPointInfo,productImageInfo,productSpecsInfo,productManualsInfo,infoData,mappingId,productInStock);
     	
     }
     @RequestMapping(value = "/customer/getsalesplay/paintpoints/{playId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -131,9 +131,9 @@ public class CustomerController  extends AbstractRestController{
     }
     @RequestMapping(value = "/customer/{salesPlayName}/productDetails/{mappingId}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ScSalesplayMapping createProductData(@PathVariable final String salesPlayName,@PathVariable final Integer mappingId,@RequestParam("productAwards")  MultipartFile productAwards,
-    		@RequestParam("productClaims")  MultipartFile productClaims,@RequestParam("productWhitePapers")  MultipartFile productWhitePapers,
-    		@RequestParam("productTestimonials")  MultipartFile productTestimonials,@RequestParam("data") final String[] productData) throws IOException  {
+    public ScSalesplayMapping createProductData(@PathVariable final String salesPlayName,@PathVariable final Integer mappingId,@RequestParam(value="productAwards",required=false)  MultipartFile productAwards,
+    		@RequestParam(value="productClaims",required=false)  MultipartFile productClaims,@RequestParam(value="productWhitePapers",required=false)  MultipartFile productWhitePapers,
+    		@RequestParam(value="productTestimonials",required=false)  MultipartFile productTestimonials,@RequestParam("data") final String[] productData) throws IOException  {
     	
     
 
@@ -164,7 +164,7 @@ public class CustomerController  extends AbstractRestController{
     	
     	if(fileData != null){
     		FileUtils.writeByteArrayToFile(new File(filePath+fileData.getOriginalFilename()), fileData.getBytes());
-    		return filePath+fileData.getOriginalFilename();
+    		return urlPath+fileData.getOriginalFilename();
     	}
     	return null;
     	

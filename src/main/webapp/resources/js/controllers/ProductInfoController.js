@@ -2,7 +2,7 @@ tracker.controller('ProductInfoController', ['$scope','$location','$window', '$s
      function($scope,$location, $window, $state,SalesPlayService,loadedData) {
 
 	  	$scope.paintPoints;
-		$scope.returnMessage="";
+		$scope.returnMessage=[];
 		$scope.errors = [];
 		$scope.salesPlay = loadedData.data;
 
@@ -10,7 +10,7 @@ tracker.controller('ProductInfoController', ['$scope','$location','$window', '$s
 	
 		$scope.customerInfo = $scope.salesPlay.scSalesplayMappings;
 	
-	    $scope.addProductInfo = function(customerData,mappingId){
+	    $scope.addProductInfo = function(customerData,mappingId,index){
 
 	    	$scope.savingIndicator = true;
 			SalesPlayService.addProductData(customerData,mappingId).then(
@@ -18,7 +18,7 @@ tracker.controller('ProductInfoController', ['$scope','$location','$window', '$s
 						$scope.savingIndicator = false;
 						$scope.errors = response.errors;
 						if ($scope.errors.length == 0) {
-							$scope.returnMessage="Succssfully added Product";
+							$scope.returnMessage[index]="Successfully added Product";
 						}						
 					});
 			};
@@ -26,6 +26,12 @@ tracker.controller('ProductInfoController', ['$scope','$location','$window', '$s
 				$state.transitionTo("addsalesplay",{playId:$scope.salesPlay.spid});
 			};
 			$scope.nextAction = function(){
+				for(i=0;i<$scope.paintPoints.length;i++){
+					if($scope.customerInfo[i].productInfo == ""){
+						alert("Plese enter the Product for the  "+$scope.customerInfo[i].painPoint);
+						return;
+					}
+				}
 				$state.transitionTo("productdatadetails",{playId:$scope.salesPlay.spid});
 			};
 		}

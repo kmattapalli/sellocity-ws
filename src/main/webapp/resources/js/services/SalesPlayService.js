@@ -68,6 +68,8 @@ tracker.factory("SalesPlayService", function($http,$filter,$rootScope){
 			    	fd.append("data", infoData.productInfo);
 			    	fd.append("specId", infoData.specId);
 			    	fd.append("manualId", infoData.manualId);
+			    	fd.append("productInStock", infoData.productInStock);
+			    	
 			   
 		
 			    	fd.append('paintPoint', infoData.painPointImage);

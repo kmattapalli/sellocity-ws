@@ -34,6 +34,7 @@ public class ScCompetetiveCompare implements Serializable {
 	private String value;
 	@JsonIgnore
 	private ScSalesplayMapping scSalesplayMapping;
+	
 	private ScStatus scStatus;
 
 	public ScCompetetiveCompare() {

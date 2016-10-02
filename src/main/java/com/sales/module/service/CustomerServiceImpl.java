@@ -129,6 +129,7 @@ public class CustomerServiceImpl implements CustomerService {
 			salesPlay.setScCustomer(cust);
 			salesPlay.setScUser1(createUser());
 			salesPlay.setScClient(clients);
+			salesPlay.setCustImage(imagePath);
 			salesPlay.setClientName(customerInfo.getClientName());
 			salesPlay.setClientContactName(customerInfo.getCustomerClientContact());
 			salesPlay.setClientContactEmail(customerInfo.getCustomerClientEmail());
@@ -198,6 +199,7 @@ public class CustomerServiceImpl implements CustomerService {
 	private ScSalesplayMapping createSalesMapping(String  paingPoint, Integer spmapId, ScSalesplay salesPlay) {
 		ScSalesplayMapping salesPlayMapping  = new ScSalesplayMapping();
 		salesPlayMapping.setPainPoint(paingPoint);
+		salesPlayMapping.setProductName(paingPoint);
 		salesPlayMapping.setScSalesplay(salesPlay);
 		salesPlayMapping.setScStatus(salesPlay.getScStatus());
 		if(spmapId != null){
@@ -242,11 +244,19 @@ public class CustomerServiceImpl implements CustomerService {
 		return fileName;
 	}
 	public ScSalesplayMapping updateProductMapping(String  paingPointURl,String productURL,String specsURL,String manualURL,
-			ScProductView productView,Integer mappingId ) {
+			ScProductView productView,Integer mappingId,String productInStock ) {
 		ScSalesplayMapping salesPlayMapping = salesPlayMappingDao.findByScSalesplayMappingId(mappingId);
-		salesPlayMapping.setPainPointImage(paingPointURl);
+		if(paingPointURl != null)
+			salesPlayMapping.setPainPointImage(paingPointURl);
+		if(productInStock == null || "undefined".equalsIgnoreCase(productInStock)){
+			salesPlayMapping.setProductInStock("N");
+		}else{
+			salesPlayMapping.setProductInStock(productInStock.trim());
+		}
+		if(productURL != null)
 		salesPlayMapping.setProductImage(productURL);
 		salesPlayMapping.setProductInfo(productView.getProductInfo());
+		salesPlayMapping.setProductName(productView.getProductInfo());
 		salesPlayMappingDao.update(salesPlayMapping);
 		if(manualURL != null && manualURL.length()>0){
 			ScSalesplayManual manuals = new ScSalesplayManual();
@@ -308,7 +318,7 @@ public class CustomerServiceImpl implements CustomerService {
 	salesPlayClaimsDAO.persist(claims);	
 
 	ScSalesplayTestimonial testimonials = new ScSalesplayTestimonial();
-	testimonials.setImageUrl(claimsURL);
+	testimonials.setImageUrl(testimonialURL);
 	testimonials.setScSalesplayMapping(salesPlayMapping);
 	salesPlayTestimonialsDAO.persist(testimonials);	
 	

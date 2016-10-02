@@ -44,15 +44,42 @@ tracker.config(['$stateProvider','$routeProvider', '$provide','$httpProvider', f
 	  $httpProvider.interceptors.push('myHttpInterceptor');
 	  
 $stateProvider
-     .state('home', {
+  .state('home', {
         url: "",
         views: {
             "uiview": {
-                templateUrl: 'resources/partials/create_play.html',
-                controller: 'SalesPlayController'
+                templateUrl: 'resources/partials/index.html',
+                controller: 'DashBoardController'
             }
         }
-    })
+   }) 
+ .state('newSalesPlay', {
+    url: "/salesplay",
+    views: {
+        "uiview": {
+            templateUrl: 'resources/partials/create_play.html',
+            controller: 'SalesPlayController'
+        }
+    }
+}) 
+ .state('disabledsalesplay', {
+    url: "/salesplay/disabled",
+    views: {
+        "uiview": {
+            templateUrl: 'resources/partials/disabled_plays.html',
+            controller: 'DisabledSalesPlayController'
+        }
+    }
+}) 
+ .state('managesalesplay', {
+    url: "/managesalesplay",
+    views: {
+        "uiview": {
+            templateUrl: 'resources/partials/manage_plays.html',
+            controller: 'ManageSalesPlayController'
+        }
+    }
+}) 
  .state('editsalesplay', {
         url: "/salesplay/{playId}", 
         resolve: {

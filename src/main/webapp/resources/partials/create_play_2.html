@@ -165,16 +165,17 @@
                                                     </div>
                                                 </div>
                                                  <input type="hidden"  name="manualId" data-ng-model="customerInfo.manualId"  >
+                                              
                                             </div>
                                         </div>
                                         <div class="row center-align margin-bottom">
                                             <div class="col m5 offset-m1">
-                                                <input type="checkbox" class="filled-in" id="p1-stock" />
+                                                <input type="checkbox" class="filled-in" id="p1-stock" data-ng-model="customerInfo[$index].productInStock" data-ng-true-value="'Y'" data-ng-false-value="'N'"/>
                                                 <label for="p1-stock">Is this product in stock?</label>
                                             </div>
                                             <div class="col m2 offset-m4">
-                                                <a class="btn btn-flat floppy" data-ng-click="addProductInfo(customerInfo[$index],mappingObj.spmapId)"><i class="fa fa-floppy-o"></i>&nbsp; Save</a>
-                                            	<div class="uploadMessage">{{returnMessage}}</div>
+                                                <a class="btn btn-flat floppy" data-ng-click="addProductInfo(customerInfo[$index],mappingObj.spmapId,$index)"><i class="fa fa-floppy-o"></i>&nbsp; Save</a>
+                                            	<div class="uploadMessage">{{returnMessage[$index]}}</div>
                                             </div>
                                         </div>
                                     </form>

@@ -3,7 +3,7 @@ tracker.controller('ProductDetailsController', ['$scope','$location','$window', 
 	  	//$scope.customerInfo={};
 	  //	$scope.customerProduct={};
 	
-	$scope.returnMessage="";
+		$scope.returnMessage=[];
 		$scope.customerInfoWrapper={};
 	  	$scope.paintPoints;
 		$scope.errors = [];
@@ -15,7 +15,7 @@ tracker.controller('ProductDetailsController', ['$scope','$location','$window', 
 		$scope.customerInfo = new Array($scope.paintPoints.length);
 	
 		
-	    $scope.createProductValues = function(customerData,mappingId){
+	    $scope.createProductValues = function(customerData,mappingId,index){
 //	    	var test = $scope.customerProduct[0].productInfo;
 //	    	var aa =  $scope.customerInfo[0];
 	    	$scope.savingIndicator = true;
@@ -24,8 +24,9 @@ tracker.controller('ProductDetailsController', ['$scope','$location','$window', 
 						$scope.savingIndicator = false;
 						$scope.errors = response.errors;
 						if ($scope.errors.length == 0) {
-							$scope.returnMessage="Succssfully added Product Details";
-						}
+							$scope.returnMessage[index]="Successfully added Product Details";
+	
+					}
 					});
 			};
 			$scope.previousAction = function(){

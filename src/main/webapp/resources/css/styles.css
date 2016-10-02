@@ -20,8 +20,20 @@
 .share{
     color: cornflowerblue;
 }
+.share-button{
+    background-color: cornflowerblue;
+}
 .disable{
     color: #bf6c44;
+}
+.disable-button{
+    background-color: #bf6c44;
+}
+.delete{
+    color: red;
+}
+.delete-button{
+    background-color: red;
 }
 .round {
 -webkit-border-radius: 15px;
@@ -54,9 +66,7 @@ border-radius: 15px;
     text-align: center;
 }
 .size-30{font-size: 30px !important;}
-.delete{
-    color: red;
-}
+
 .wrapper {
     min-height: 79%;
     height: auto !important;
@@ -65,10 +75,12 @@ border-radius: 15px;
 ul#tabs li, .inline{
     display: inline;
 }
-.modal{
-    width: auto !important;
-    background-color: transparent !important;
-    max-height: none !important;
+#share-modal, #disable-modal, #delete-modal, #edit-modal, #send-modal{
+    //width: auto !important;
+    //background-color: transparent !important;
+    //max-height: none !important;
+    box-shadow: none;
+    background-color: transparent;
 }
 .size-18{
     font-size: 18px !important;
@@ -175,8 +187,8 @@ svg{
     max-width: 40px;
 }
 .circle {
-    width: 28px;
-    height: 28px;
+    width: 35px;
+    height: 35px;
     text-align: center;
     border-radius: 100%;
 }
@@ -203,6 +215,9 @@ svg{
 .back-yellow{
     background: #f8e805;
     color: black;
+}
+select{
+    display: inline-block;
 }
 .uploadMessage{
 	font-style: italic;

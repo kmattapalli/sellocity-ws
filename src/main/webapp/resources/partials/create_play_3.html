@@ -71,7 +71,7 @@
             <div class="col m12">
                 <ul class="collapsible" data-collapsible="accordion">
                     <li data-ng-repeat="mappingObj in paintPoints">
-                      <div class="collapsible-header text-align active">Product 1</div>
+                      <div class="collapsible-header text-align active">{{mappingObj.productInfo}}</div>
                      
                         <div class="collapsible-body">
                          
@@ -85,25 +85,25 @@
                                     <form class="col m8">
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <input placeholder="Hardware Agnostic Code" id="play-name" type="text" class="" name="productValues1" data-ng-model="product.productValues1">
+                                                <input placeholder="Hardware Agnostic Code" id="play-name" type="text" class="" name="productValues1" data-ng-model="product[$index].productValues1">
                                                 <label for="play-name"></label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <input placeholder="Global Memory Coalscing" id="client-name" type="text" class="" name="productValues2" data-ng-model="product.productValues2">
+                                                <input placeholder="Global Memory Coalscing" id="client-name" type="text" class="" name="productValues2" data-ng-model="product[$index].productValues2">
                                                 <label for="client-name"></label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <input placeholder="Lowest Wattage per Dollar" id="receiver-name" type="text" class="" name="productValues3" data-ng-model="product.productValues3">
+                                                <input placeholder="Lowest Wattage per Dollar" id="receiver-name" type="text" class="" name="productValues3" data-ng-model="product[$index].productValues3">
                                                 <label for="receiver-name"></label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <input placeholder="Highest frames per second" id="receiver-email" type="text" class="" name="productValues4" data-ng-model="product.productValues4">
+                                                <input placeholder="Highest frames per second" id="receiver-email" type="text" class="" name="productValues4" data-ng-model="product[$index].productValues4">
                                                 <label for="receiver-email"></label>
                                             </div>
                                         </div>
@@ -123,7 +123,7 @@
                                         <div id="product-awards" class="file-field input-field">
                                             <div class="btn btn-flat">
                                                 <span class=""><img src="resources/images/upload_icon.png" height="45" width="45" /></span>
-                                                <input type="file" data-file-model="product.productAwards" />
+                                                <input type="file" data-file-model="product[$index].productAwards" />
                                             </div>
                                             <div class="file-path-wrapper">
                                                 <input class="file-path validate" type="text">
@@ -143,7 +143,7 @@
                                         <div id="product-claims" class="file-field input-field">
                                             <div class="btn btn-flat">
                                                 <span class=""><img src="resources/images/upload_icon.png" height="45" width="45" /></span>
-                                                <input type="file" data-file-model="product.productClaims" />
+                                                <input type="file" data-file-model="product[$index].productClaims" />
                                             </div>
                                             <div class="file-path-wrapper">
                                                 <input class="file-path validate" type="text">
@@ -163,7 +163,7 @@
                                         <div id="product-whitepapers" class="file-field input-field">
                                             <div class="btn btn-flat">
                                                 <span class=""><img src="resources/images/upload_icon.png" height="45" width="45" /></span>
-                                                <input type="file" data-file-model="product.productWhitePapers"/>
+                                                <input type="file" data-file-model="product[$index].productWhitePapers"/>
                                             </div>
                                             <div class="file-path-wrapper">
                                                 <input class="file-path validate" type="text">
@@ -183,7 +183,7 @@
                                         <div id="product-testimonials" class="file-field input-field">
                                             <div class="btn btn-flat">
                                                 <span class=""><img src="resources/images/upload_icon.png" height="45" width="45" /></span>
-                                                <input type="file" data-file-model="product.productTestimonials" />
+                                                <input type="file" data-file-model="product[$index].productTestimonials" />
                                             </div>
                                             <div class="file-path-wrapper">
                                                 <input class="file-path validate" type="text">
@@ -193,8 +193,8 @@
                                 </div>
                                 <div class="row margin-bottom">
                                     <div class="col m2 offset-m10">
-                                        <a class="btn btn-flat floppy" data-ng-click="createProductValues(product,mappingObj.spmapId)"><i class="fa fa-floppy-o"></i>&nbsp; Save</a>
-                                   	 <div>{{returnMessage}}</div>
+                                        <a class="btn btn-flat floppy" data-ng-click="createProductValues(product[$index],mappingObj.spmapId,$index)"><i class="fa fa-floppy-o"></i>&nbsp; Save</a>
+                                   		<div class="uploadMessage">{{returnMessage[$index]}}</div>
                                     </div>
                                    
                                 </div>

@@ -71,7 +71,7 @@
             <div class="col m12">
                 <ul class="collapsible" data-collapsible="accordion">
                      <li data-ng-repeat="mappingObj in paintPoints">
-                        <div class="collapsible-header text-align active">Product 1</div>
+                        <div class="collapsible-header text-align active">{{mappingObj.productInfo}}</div>
                         <div class="collapsible-body">
                             <div class="panel-body">
                                 <div class="row">
@@ -83,41 +83,40 @@
                                     <form class="col m8">
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <input placeholder="Hardware Agnostic Code" id="play-name" type="text" class="" name="productValues1" data-ng-model="product.productValues1">
+                                                <input placeholder="Hardware Agnostic Code" id="play-name" type="text" class="" name="productValues1" data-ng-model="product[$index].productValues1">
                                                 <label for="play-name"></label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <input placeholder="Global Memory Coalscing" id="client-name" type="text" class="" name="productValues2" data-ng-model="product.productValues2">
+                                                <input placeholder="Global Memory Coalscing" id="client-name" type="text" class="" name="productValues2" data-ng-model="product[$index].productValues2">
                                                 <label for="client-name"></label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <input placeholder="Lowest Wattage per Dollar" id="receiver-name" type="text" class="" name="productValues3" data-ng-model="product.productValues3">
+                                                <input placeholder="Lowest Wattage per Dollar" id="receiver-name" type="text" class="" name="productValues3" data-ng-model="product[$index].productValues3">
                                                 <label for="receiver-name"></label>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="input-field col s12">
-                                                <input placeholder="Highest frames per second" id="receiver-email" type="text" class="" name="productValues4" data-ng-model="product.productValues4">
+                                                <input placeholder="Highest frames per second" id="receiver-email" type="text" class="" name="productValues4" data-ng-model="product[$index].productValues4">
                                                 <label for="receiver-email"></label>
                                             </div>
                                         </div>
                                     </form>
                                 </div>
 
-                                <div class="row container-fluid center-align margin-top">
+                                 <div class="row container-fluid center-align margin-top">
                                     <div class="col m10 center-align red lighten-3">
-                                        <a href="#" class="" data-toggle="modal" data-target="#faq-modal"><h6>Include commonly asked customer questions for Vaio Z?  &nbsp;&nbsp; <img src="resources/images/Idea_example_icon.png" height="30" width="25" /></h6></a>
-
-
+                                        <a class="" data-toggle="modal" data-target="#faq-modal"><h6>Include commonly asked customer questions for Vaio Z?  &nbsp;&nbsp; <img src="resources/images/Idea_example_icon.png" height="30" width="25" /></h6></a>
                                     </div>
                                     <div class="col m2">
-                                        <a class="btn btn-flat floppy" data-ng-click="createBenefitDetails(product,mappingObj.spmapId)"><i class="fa fa-floppy-o"></i>&nbsp; Save</a>
-                                     <div>{{returnMessage}}</div>
+                                        <a class="btn btn-flat floppy" data-ng-click="createBenefitDetails(product[$index],mappingObj.spmapId,$index)"><i class="fa fa-floppy-o"></i>&nbsp; Save</a>
+                                    	<div class="uploadMessage">{{returnMessage[$index]}}</div>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -148,7 +147,7 @@
                             <h6 class="modal-title font-125" id="Product1ModalLabel">Craft your own FAQ's customers would most likely want answers to</h6>
                         </div>
                         <div class="col m2 left-border margin-bottom left-margin">
-                            <a href="#"><img src="resources/images/Idea_example_icon.png" height="30" width="25" /></a>
+                            <a href="#"><img src="images/Idea_example_icon.png" height="30" width="25" /></a>
                         </div>
                     </div>
 
@@ -197,5 +196,4 @@
             </div>
         </div>
     </div>
-</body>
 </html>

@@ -15,6 +15,11 @@
     <script src="resources/js/controllers/ProductDetailsController.js"></script>
     <script src="resources/js/controllers/ProductBenefitsController.js"></script>
     
+    <script src="resources/js/controllers/DashBoardController.js"></script>
+    <script src="resources/js/controllers/ManageSalesPlayController.js"></script>   
+    <script src="resources/js/controllers/DisabledSalesPlayController.js"></script> 
+     
+    
     
     <script src="resources/js/controllers/SalesPlayUploadController.js"></script>  
     

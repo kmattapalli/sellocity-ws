@@ -36,6 +36,7 @@ public class ScSalesplay implements Serializable {
 	private String clientContactEmail;
 	private String clientContactName;
 	private String clientName;
+	private String custImage;
 	private Timestamp dateCreated;
 	private String globalId;
 	private Timestamp lastupdatedDate;
@@ -283,6 +284,23 @@ public class ScSalesplay implements Serializable {
 		scSalesplayRespons.setScSalesplay(null);
 
 		return scSalesplayRespons;
+	}
+
+
+	/**
+	 * @return the custImage
+	 */
+	@Column(name="CUST_IMAGE")
+	public String getCustImage() {
+		return custImage;
+	}
+
+
+	/**
+	 * @param custImage the custImage to set
+	 */
+	public void setCustImage(String custImage) {
+		this.custImage = custImage;
 	}
 
 }

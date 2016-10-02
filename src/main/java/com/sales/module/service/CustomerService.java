@@ -14,7 +14,7 @@ public interface CustomerService {
 	public ScSalesplay addSalesPlayMapping(SalesPlayMappingInfo mappingInfo,Integer salesPlayId);
 	
 	public ScSalesplayMapping updateProductMapping(String  paingPointURl,String productURL,String specsURL,String manualURL,
-			ScProductView productView,Integer mappingId );
+			ScProductView productView,Integer mappingId,String productInStock );
   
 	public ScSalesplay findBySalesPlayIdWithMapping(Integer salesId);
 	
