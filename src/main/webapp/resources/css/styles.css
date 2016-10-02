@@ -223,3 +223,6 @@ select{
 	font-style: italic;
     color: #008000;
 }
+a:hover {
+ cursor:pointer;
+}

@@ -54,13 +54,15 @@ public class CustomerController  extends AbstractRestController{
   
     	ObjectMapper mapper = new ObjectMapper();
     	String fileUrl=null;
+    	String uploadFileName="";
     	CustomerInfo infoData  = mapper.readValue(info,CustomerInfo.class);
     	if(productImage != null){
     		File uploads = new File(pathName+productImage.getOriginalFilename());
     		FileUtils.writeByteArrayToFile(uploads, productImage.getBytes());
     		fileUrl=fileNamePath+productImage.getOriginalFilename();
+    		uploadFileName= urlPath+productImage.getOriginalFilename();
     	}
-    	ScSalesplayView salesPlay = customerService.createSalesPlay(infoData, "Dell",urlPath+productImage.getOriginalFilename());
+    	ScSalesplayView salesPlay = customerService.createSalesPlay(infoData, "Dell",uploadFileName);
 		return salesPlay;
     }
     @RequestMapping(value = "/customer/salesplay/{playId}", method = RequestMethod.PUT,consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
